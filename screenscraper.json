@@ -1,0 +1,341 @@
+{
+  "id": 78626,
+  "hidden": false,
+  "title": {
+    "ss": "Devil's Crush",
+    "us": "Devil's Crush",
+    "jp": "Devil Crash : Naxat Pinball"
+  },
+  "region": "jp",
+  "parent": "0",
+  "platform": 31,
+  "publisher": {
+    "id": "4943",
+    "text": "NEC Technologies, Inc."
+  },
+  "developer": {
+    "id": "48",
+    "text": "Compile"
+  },
+  "players": "1-2",
+  "ages": "13",
+  "favorite": false,
+  "description": {
+    "en": "Imagine an adventure game in the format of pinball, and you get Dragon's Fury. Your hero is a small silver ball, and your battlefield is a three-tiered pinball machine. Using your ball, you can defeat monsters, rack up points, and enter bonus stages. If you play with enough skill, you can trigger all sorts of point-accumulating bonuses. If you get one billion points, you get to fight the final boss and view the ending to the game.",
+    "fr": "Devil Crash (Devil's Crush chez nous) est la suite officielle d'Alien Crush, et en reprend les bonnes id\u00e9es en les am\u00e9liorant.\r\nLe th\u00e8me des Aliens a \u00e9t\u00e9 abandonn\u00e9 au profit d'une ambiance medievalo-fantastique, avec sorciers, dragons et autres bestioles ind\u00e9finissables mais peu rago\u00fbtantes. De plus, cette fois-ci le flipper compte 3 tables au lieu de deux, et la transition est (enfin) r\u00e9alis\u00e9e \u00e0 l'aide d'une scrolling, ce qui am\u00e9liore grandement la visibilit\u00e9 et donc la jouabilit\u00e9. Enfin, Devil Crash reprend le syst\u00e8me des stages bonus, et l'am\u00e9liorant : ces stages sont plus nombreux (sept en comptant le combat final), et plus difficiles, ce qui les apparente \u00e0 des combats contre des boss."
+  },
+  "releasedate": {
+    "jp": "1990-07-20",
+    "us": "1990"
+  },
+  "genre": [
+    {
+      "id": "31",
+      "principale": "1",
+      "parentid": "0",
+      "noms": [
+        {
+          "langue": "de",
+          "text": "Flipper"
+        },
+        {
+          "langue": "en",
+          "text": "Pinball"
+        },
+        {
+          "langue": "es",
+          "text": "Pinball"
+        },
+        {
+          "langue": "fr",
+          "text": "Flipper"
+        },
+        {
+          "langue": "pt",
+          "text": "Pinball"
+        }
+      ]
+    }
+  ],
+  "media": [
+    {
+      "type": "sstitle",
+      "region": "wor",
+      "sha1": "f933af445a5fa8969a13466b129f11f9f3fb6311",
+      "format": "png"
+    },
+    {
+      "type": "ss",
+      "region": "wor",
+      "sha1": "fbdecd4d64b20de7649ae67b550e3453a4b166cd",
+      "format": "png"
+    },
+    {
+      "type": "fanart",
+      "sha1": "5bd3d252838b9c7d1e85f47d26e0cc0780f10161",
+      "format": "jpg"
+    },
+    {
+      "type": "video",
+      "sha1": "f8673ca6fdac690014d9161f031d9b2db8963b7c",
+      "format": "mp4"
+    },
+    {
+      "type": "video-normalized",
+      "sha1": "00760913d1984339f09a5a81227e864777120db4",
+      "format": "mp4"
+    },
+    {
+      "type": "screenmarquee",
+      "region": "jp",
+      "sha1": "0628db399a79080ec94527918ec0c95c8e076a60",
+      "format": "png"
+    },
+    {
+      "type": "screenmarquee",
+      "region": "us",
+      "sha1": "9a0b07ee431d8db976abc9dd8e1205c9c1c12a0f",
+      "format": "png"
+    },
+    {
+      "type": "screenmarqueesmall",
+      "region": "jp",
+      "sha1": "5bb15d40262b805c370fc2462f576e1ef91f864e",
+      "format": "png"
+    },
+    {
+      "type": "screenmarqueesmall",
+      "region": "us",
+      "sha1": "af621bf58a54669aa85c9479986ad673d74baf61",
+      "format": "png"
+    },
+    {
+      "type": "manuel",
+      "region": "jp",
+      "sha1": "f54243107ff917132d974236234e45553f662ef3",
+      "format": "pdf"
+    },
+    {
+      "type": "manuel",
+      "region": "us",
+      "sha1": "71a04af8ca2cffa6ab08f7419f539235eccc978a",
+      "format": "pdf"
+    },
+    {
+      "type": "steamgrid",
+      "sha1": "5fbae34f38604c1ab2e06dd2e6f91e68dc8648bc",
+      "format": "jpg"
+    },
+    {
+      "type": "wheel",
+      "region": "jp",
+      "sha1": "a719c6e76401f8f5332ae39a555eb82f3ca3006f",
+      "format": "png"
+    },
+    {
+      "type": "wheel",
+      "region": "us",
+      "sha1": "f40dfc5293ba6d2c8d0e426f5c9c3cd9eb6843ce",
+      "format": "png"
+    },
+    {
+      "type": "wheel-carbon",
+      "region": "jp",
+      "sha1": "b44e232fdaf7172e0224ed5692c30822519ce298",
+      "format": "png"
+    },
+    {
+      "type": "wheel-carbon",
+      "region": "us",
+      "sha1": "95c2d0f881ed27300f21fba9334dc571db3a2638",
+      "format": "png"
+    },
+    {
+      "type": "wheel-steel",
+      "region": "jp",
+      "sha1": "03795cefaca5f573d6b030a97b62d8fbee11f536",
+      "format": "png"
+    },
+    {
+      "type": "wheel-steel",
+      "region": "us",
+      "sha1": "eea124f8ce736ed6e0d091c81bb0af11f8e25de0",
+      "format": "png"
+    },
+    {
+      "type": "box-2D",
+      "region": "cus",
+      "sha1": "048dd378a227f579988d8ed5d3989a6281a6e45c",
+      "format": "png"
+    },
+    {
+      "type": "box-2D",
+      "region": "jp",
+      "sha1": "ffb76b5aca3efd58396fd49c793831f3ddfd6ed1",
+      "format": "png"
+    },
+    {
+      "type": "box-2D",
+      "region": "jp",
+      "sha1": "ffb76b5aca3efd58396fd49c793831f3ddfd6ed1",
+      "format": "png"
+    },
+    {
+      "type": "box-2D",
+      "region": "us",
+      "sha1": "c5fc1c3bdf2fbd15fe113ccdad134ddc3f1457b4",
+      "format": "png"
+    },
+    {
+      "type": "box-2D-side",
+      "region": "cus",
+      "sha1": "cf3ecbe01c3e07745c3417b9a0a5c06b6f08396c",
+      "format": "png"
+    },
+    {
+      "type": "box-2D-side",
+      "region": "jp",
+      "sha1": "e748f2d7a363b476c8cd8390f4d2051b249c46e7",
+      "format": "png"
+    },
+    {
+      "type": "box-2D-side",
+      "region": "us",
+      "sha1": "8e120da3f69485a83b20f471301617a234f768b5",
+      "format": "png"
+    },
+    {
+      "type": "box-2D-back",
+      "region": "cus",
+      "sha1": "433103fa6909b7e54a9d9806d2d18ab86b2a6ba1",
+      "format": "png"
+    },
+    {
+      "type": "box-2D-back",
+      "region": "jp",
+      "sha1": "c84afd71382ea92e7dfa798ff1eb159af9531368",
+      "format": "png"
+    },
+    {
+      "type": "box-2D-back",
+      "region": "us",
+      "sha1": "373c7c96a655bc1861111cb7c5c1c364513b6f1b",
+      "format": "png"
+    },
+    {
+      "type": "box-texture",
+      "region": "cus",
+      "sha1": "5257d33e4755695fe443ac273bedba9bde722b67",
+      "format": "png"
+    },
+    {
+      "type": "box-texture",
+      "region": "jp",
+      "sha1": "5447138d98900629bd0e6ecc3dc99a1235453cea",
+      "format": "png"
+    },
+    {
+      "type": "box-texture",
+      "region": "us",
+      "sha1": "218d867199b98a4b5a45a11a856386d415dea419",
+      "format": "png"
+    },
+    {
+      "type": "box-3D",
+      "region": "cus",
+      "sha1": "b1193f7bab553b4bc7a626bdaafdb2808820b6ed",
+      "format": "png"
+    },
+    {
+      "type": "box-3D",
+      "region": "jp",
+      "sha1": "919189d284737355f48172c828dffa10f09189f3",
+      "format": "png"
+    },
+    {
+      "type": "box-3D",
+      "region": "us",
+      "sha1": "3f39cb1ba3dd96f1416e75c757201a52d762ac4e",
+      "format": "png"
+    },
+    {
+      "type": "support-texture",
+      "region": "jp",
+      "sha1": "371a2fd99d403d8b1b9d4ae0a1b22cfcc9db80e6",
+      "format": "png"
+    },
+    {
+      "type": "support-texture",
+      "region": "us",
+      "sha1": "eb89c31237edd9370293654cb94c13ce1ae39850",
+      "format": "png"
+    },
+    {
+      "type": "support-2D",
+      "region": "jp",
+      "sha1": "dbba836510d53dad74ab654d02bcd6023e304255",
+      "format": "png"
+    },
+    {
+      "type": "support-2D",
+      "region": "us",
+      "sha1": "fcfffd7b64f5541f4830787467ecdf98738196bc",
+      "format": "png"
+    },
+    {
+      "type": "mixrbv1",
+      "region": "jp",
+      "sha1": "14052ec590f33688e71b63fa48a0d841a9ac8600",
+      "format": "png"
+    },
+    {
+      "type": "mixrbv1",
+      "region": "us",
+      "sha1": "0f16b716fc16ac172eecab53e3ae29c3dda2bf71",
+      "format": "png"
+    },
+    {
+      "type": "mixrbv1",
+      "region": "wor",
+      "sha1": "0f16b716fc16ac172eecab53e3ae29c3dda2bf71",
+      "format": "png"
+    },
+    {
+      "type": "mixrbv2",
+      "region": "jp",
+      "sha1": "db8e49c962c25bb2d30b5c39d208a7b1769c937a",
+      "format": "png"
+    },
+    {
+      "type": "mixrbv2",
+      "region": "us",
+      "sha1": "ea52ca144336f0a0f2bfd37adbfdd42be1791b32",
+      "format": "png"
+    },
+    {
+      "type": "mixrbv2",
+      "region": "wor",
+      "sha1": "ea52ca144336f0a0f2bfd37adbfdd42be1791b32",
+      "format": "png"
+    }
+  ],
+  "rom": {
+    "id": 172054,
+    "filename": "Devil Crash - Naxat Pinball (Japan).pce",
+    "region": "jp",
+    "size": "393216",
+    "crc32": "4EC81A80",
+    "sha1": "808638C33E110285D0D9415BC046B94A84B02C6A",
+    "parent": 0,
+    "beta": false,
+    "demo": false,
+    "prototype": false,
+    "translation": false,
+    "hack": false,
+    "unlicensed": false,
+    "alternate": false,
+    "best": false,
+    "netplay": false
+  },
+  "checksum": "f677b6d9475fca8a07b66068ead12c2"
+}
