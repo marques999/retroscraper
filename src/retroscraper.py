@@ -206,7 +206,8 @@ class Screenscraper(object):
     def __log_failure(filename, source):
         return f"{filename} -> {colorama.Fore.RED}N/A {colorama.Fore.MAGENTA}({source})"
 
-#Screenscraper("atarilynx", "G:\\No-Intro\\[[DONE]]\\[No-Intro] Atari Lynx (2019-04-07)").fetch_screenscraper()
+
+Screenscraper("mo5", "D:\\MAME\\software\\to7_cass\\[[WIP]]").fetch_screenscraper()
 
 def test_json():
 

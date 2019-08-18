@@ -35,6 +35,14 @@ PLATFORMS = {
             ".do", ".dsk", ".nib", ".po"
         }
     },
+    "apple2gs": {
+        "id": {
+            "screenscraper": 217
+        },
+        "extensions": {
+            ".2mg", ".do", ".po"
+        }
+    },
     "atari2600": {
         "id": {
             "mobygames": 28,
@@ -225,42 +233,62 @@ PLATFORMS = {
             "mobygames": 20,
             "screenscraper": 20
         },
-        "extensions": {".bin", ".chd", ".cue", ".iso"}
+        "extensions": {
+            ".bin", ".chd", ".cue", ".iso"
+        }
     },
     "megadrive": {
         "id": {
             "mobygames": 16,
             "screenscraper": 1
         },
-        "extensions": {".bin", ".gen", ".md", ".smd"}
+        "extensions": {
+            ".bin", ".gen", ".md", ".smd"
+        }
+    },
+    "mo5": {
+        "id": {
+            "screenscraper": 141
+        },
+        "extensions": {
+            ".bin", ".fd", ".k7", ".m5", ".qd", ".sap", ".wav"
+        }
     },
     "msx": {
         "id": {
             "mobygames": 57,
             "screenscraper": 113
         },
-        "extensions": {".dsk", ".mx1", ".mx2", ".rom"}
+        "extensions": {
+            ".dsk", ".mx1", ".mx2", ".rom"
+        }
     },
     "n64": {
         "id": {
             "mobygames": 9,
             "screenscraper": 14
         },
-        "extensions": {".n64", ".v64", ".z64"}
+        "extensions": {
+            ".n64", ".v64", ".z64"
+        }
     },
     "nds": {
         "id": {
             "mobygames": 44,
             "screenscraper": 15
         },
-        "extensions": {".nds", ".zip"}
+        "extensions": {
+            ".nds", ".zip"
+        }
     },
     "neogeo": {
         "id": {
             "mobygames": 36,
             "screenscraper": 142
         },
-        "extensions": {".7z", ".zip"}
+        "extensions": {
+            ".7z", ".zip"
+        }
     },
     "nes": {
         "id": {
