@@ -1,67 +1,83 @@
-import os
-
+from os import path
 from pathlib import Path
-from skyscraper import read_database
+
+from tools import get_roms
 from platforms import ROM_EXTENSIONS
-from tools import digest_file, get_roms
+from skyscraper import SkyscraperMetadata
 
-def organize_directories(platform):
 
-    roms_directory = Path.home() / "RetroPie" / "roms" / platform
-    cache_directory = Path.home() / ".skyscraper" / "cache" / platform
-    roms = get_roms(roms_directory, ROM_EXTENSIONS.get(platform))
-    gamedb = read_database(cache_directory)
+def get_suffix(title):
 
-    entries = [
+    if title[0].isalpha():
+        return title[0].upper()
+    else:
+        return "#"
+
+
+def organize_directories(context):
+
+    filenames = []
+    roms = context["roms"]
+    gamedb = SkyscraperMetadata().read(context["media_directory"])
+
+    entries = (
         (game["title"].upper(), roms[checksum])
         for (checksum, game) in gamedb.items()
-    ]
+        if checksum in roms
+    )
 
     for title, filename in entries:
 
-        rom_directory = Path(os.path.dirname(filename))
+        rom_directory = Path(path.dirname(filename))
         rom_suffix = rom_directory.parts[-1]
-
-        if title[0].isalpha():
-            organized_suffix = title[0].upper()
-        else:
-            organized_suffix = "#"
-
-        has_valid_suffix = rom_suffix == "#" or (len(rom_suffix) == 1 and rom_suffix.isalpha())
+        organized_suffix = get_suffix(title)
+        has_valid_suffix = rom_suffix == "#" or (
+            len(rom_suffix) == 1 and rom_suffix.isalpha())
 
         if has_valid_suffix and rom_suffix.upper() == organized_suffix:
             continue
 
         if has_valid_suffix:
-            organized_directory = rom_directory.joinpath("..", organized_suffix).resolve()
+            organized_directory = rom_directory.joinpath(
+                "..", organized_suffix).resolve()
         else:
             organized_directory = rom_directory.joinpath(organized_suffix)
 
-        if not os.path.exists(organized_directory):
-            os.mkdir(organized_directory)
+        filenames.append((
+            filename,
+            organized_directory.joinpath(path.basename(filename))
+        ))
 
-        os.rename(filename, organized_directory.joinpath(os.path.basename(filename)))
+    return filenames
 
-def organize_rename(roms_directory):
 
-    for root, _, filenames in os.walk(roms_directory, topdown=False):
+def organize_rename(context):
 
-        if "media" in Path(root).relative_to(roms_directory).parts:
-            continue
+    destination = context["output_directory"]
+    gamedb = SkyscraperMetadata().read(context["media_directory"])
 
-        for filename in filenames:
+    return (
+        (filename, Path(destination.joinpath(
+            checksum).with_suffix(path.splitext(filename)[-1])))
+        for (checksum, filename) in context["roms"].items()
+        if checksum in gamedb
+    )
 
-            source_filename = os.path.join(root, filename)
+def organize_roms(context, gamedb):
 
-            if filename == "gamelist.xml" or os.path.isdir(source_filename):
-                continue
+    filenames = []
 
-            checksum = digest_file(source_filename)
-            extension = os.path.splitext(filename)[-1]
-            target_filename = Path(root).joinpath(checksum).with_suffix(extension)
+    for (source, checksum, game) in gamedb:
 
-            if os.path.exists(target_filename):
-                continue
+        filenames.append((source, Path(context["output_directory"])
+                          .joinpath(get_suffix(game["title"]))
+                          .joinpath(checksum)
+                          .with_suffix(path.splitext(source)[-1])))
 
-            os.rename(source_filename, target_filename)
-            print(source_filename, "->", target_filename)
+        for media in context["medias"]:
+
+            filenames.append((
+                Path(context["media_directory"]) / game[media],
+                Path(context["output_directory"]) / (media + "s") / path.basename(game[media])))
+
+    return filenames

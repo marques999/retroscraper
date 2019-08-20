@@ -6,6 +6,8 @@ from hashlib import sha1
 from zipfile import ZipFile
 from datetime import datetime
 from platforms import ROM_EXTENSIONS
+from xml.dom import minidom
+from xml.etree import ElementTree
 
 DATETIME_REGEX = [
     (re.compile("^\\d{4}$"), "%Y"),
@@ -17,18 +19,24 @@ DATETIME_REGEX = [
     (re.compile("^[a-zA-z]{3} ([0-3]{1})?\\d{1}, \\d{4}$"), "%M %d, %Y")
 ]
 
-def get_sha1(bytearray):
+def get_sha1(stream):
 
-    return sha1(bytearray).hexdigest().lower()
+    return sha1(stream).hexdigest().lower()
+
+def prettify_xml(root, separator):
+
+    return minidom.parseString(
+        ElementTree.tostring(root)
+    ).toprettyxml(indent=separator)
 
 def digest_file(filename):
 
-    with open(filename, mode="rb") as stream:
+    with open(filename, "rb") as stream:
         return get_sha1(stream.read())
 
 def digest_gzip(filename):
 
-    with gzip.open(filename, mode="r") as stream:
+    with gzip.open(filename, "r") as stream:
         return get_sha1(stream.read())
 
 def digest_zip(filename):

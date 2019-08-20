@@ -1,8 +1,8 @@
 from re import sub
 from os import path
-from pathlib import PurePath
 from tools import parse_datetime
 from textwrap import TextWrapper, dedent
+from itertools import takewhile
 
 def export_string(context, value):
     return value
@@ -17,10 +17,10 @@ def export_release(context, value):
     return parse_datetime(value).strftime("%Y-%m-%d")
 
 def export_rom(context, value):
-    return str(context.roms_directory / value).replace("\\", "/")
+    return str(context["roms_directory"] / value).replace("\\", "/")
 
 def export_media(context, value):
-    return str(context.media_directory / value).replace("\\", "/")
+    return str(context["media_directory"] / value).replace("\\", "/")
 
 def export_description(context, value):
 
@@ -55,27 +55,46 @@ PEGASUS_EXPORTER = {
     "assets.wheel": ("wheel", export_media),
 }
 
-class PegasusExporter:
+class PegasusMetadata:
 
     def __init__(self, context):
 
         self.context = context
 
-    def generate_metadata(self, entries):
+    def debug(self, entries):
+
+        return self.__generate_metadata(entries)
+
+    def write(self, entries, path):
+
+        filename = path / "metadata.pegasus.txt"
+
+        with open(filename, mode="w", encoding="utf-8") as stream:
+            stream.write(self.__generate_metadata(entries))
+
+    def __generate_metadata(self, entries):
 
         return "\n\n\n".join(map(self.__generate_entry, entries))
-
-    def write_metadata(self, entries, directory):
-
-        metadata_filename = path.join(directory, "metadata.pegasus.txt")
-
-        with open(metadata_filename, "w", encoding="utf-8") as stream:
-            stream.write(self.generate_metadata(entries))
 
     def __generate_entry(self, entry):
 
         return "\n".join(
-            "%s: %s" % (destination, handler(self.context, entry[source]))
-            for destination, (source, handler) in PEGASUS_EXPORTER.items()
+            "%s: %s" % (destination, exporter(self.context, entry[source]))
+            for destination, (source, exporter) in PEGASUS_EXPORTER.items()
             if source in entry
         )
+
+# metadata_filename = "D:\\Atari 7800 [US]\\metadata.pegasus.txt"
+
+# with open(metadata_filename, mode="r", encoding="utf-8") as stream:
+#     contents = stream.read().split("\n\n\n")
+#     entries = iter(contents[0].split("\n"))
+#     mapping = {}
+#     while entries:
+#         key, _, value = next(entries, "").partition(": ")
+#         if key == "description":
+#             print(list(takewhile(lambda x: x.startswith("  "), entries)))
+#         else:
+#             mapping[key] = value
+
+#     print(mapping)
