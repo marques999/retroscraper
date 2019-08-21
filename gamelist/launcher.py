@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 from argparse import ArgumentParser
 
+from platforms import ROM_EXTENSIONS
 from metadata import GamelistContext
 from yennie import check_assets, check_yennie
 from organize import organize_directories, organize_rename
@@ -22,11 +23,14 @@ def print_result(duplicates):
 
 def get_context(platform):
 
-    return GamelistContext(
-        platform,
-        Path.home() / "RetroPie" / "roms" / platform,
-        Path.home() / ".skyscraper" / "cache" / platform
-    )
+    return {
+        "platform": platform,
+        "extensions": ROM_EXTENSIONS[platform],
+        "medias": {"covers", "screenshots", "wheels"},
+        "output_directory": Path("G:\\RetroPie") / platform,
+        "roms_directory": Path.home() / "RetroPie" / "roms" / platform,
+        "media_directory": Path.home() / ".skyscraper" / "cache" / platform
+    }
 
 def duplicates_region_cli(platform, debug):
 
@@ -62,9 +66,7 @@ def organize_directories_cli(platform, debug):
 
 def organize_rename_cli(platform, debug):
 
-    context = get_context(platform)
-
-    for (source, destination) in organize_rename(context):
+    for (source, destination) in organize_rename(get_context(platform)):
 
         if os.path.exists(destination):
             continue

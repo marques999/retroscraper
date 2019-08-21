@@ -3,11 +3,11 @@ import re
 import gzip
 
 from hashlib import sha1
+from xml.dom import minidom
 from zipfile import ZipFile
 from datetime import datetime
-from platforms import ROM_EXTENSIONS
-from xml.dom import minidom
 from xml.etree import ElementTree
+from platforms import ROM_EXTENSIONS
 
 DATETIME_REGEX = [
     (re.compile("^\\d{4}$"), "%Y"),
@@ -55,6 +55,14 @@ def parse_datetime(timestamp):
 
     return datetime.now()
 
+def execute_exporter(exporter, context, entry):
+
+     return (
+         (destination, exporter(context, entry[source]))
+         for destination, (source, exporter) in exporter.items()
+         if source in entry
+     )
+
 def get_files(directory, extensions):
 
     return (
@@ -68,18 +76,23 @@ def get_roms(roms_directory, extensions):
 
     roms = {}
 
-    for root, _, filenames in os.walk(roms_directory):
+    filenames = (
+        os.path.join(root, filename)
+        for root, _, filenames in os.walk(roms_directory)
+        for filename in filenames
+    )
 
-        for filename in filenames:
+    for filename in filenames:
 
-            path = os.path.join(root, filename)
-            extension = os.path.splitext(filename)[-1].lower()
+        extension = os.path.splitext(filename)[-1].lower()
 
-            if extension in extensions:
-                roms[digest_file(path)] = path
-            elif extension == ".zip":
-                roms[digest_zip(path)], roms[digest_file(path)] = path, path
-            elif extension == ".gz":
-                roms[digest_gzip(path)], roms[digest_file(path)] = path, path
+        if extension == ".zip":
+            roms[digest_zip(filename)] = filename
+        elif extension == ".gz":
+            roms[digest_gzip(filename)] = filename
+        elif extension not in extensions:
+            continue
+
+        roms[digest_file(filename)] = filename
 
     return roms

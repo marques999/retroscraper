@@ -1,8 +1,9 @@
 from re import sub
 from os import path
-from tools import parse_datetime
 from textwrap import TextWrapper, dedent
-from itertools import takewhile
+
+from gdf import GdfFields, PegasusFields
+from tools import parse_datetime, execute_exporter
 
 def export_string(context, value):
     return value
@@ -41,18 +42,20 @@ def export_description(context, value):
     return "\n  " + "\n  ".join(wrapped)
 
 PEGASUS_EXPORTER = {
-    "game": ("title", export_string),
-    "file": ("path", export_rom),
-    "developer": ("developer", export_string),
-    "publisher": ("publisher", export_string),
-    "genre": ("tags", export_string),
-    "description": ("description", export_description),
-    "release": ("releasedate", export_release),
-    "players": ("players", export_players),
-    "rating": ("rating", export_rating),
-    "assets.boxfront": ("cover", export_media),
-    "assets.screenshots": ("screenshot", export_media),
-    "assets.wheel": ("wheel", export_media),
+    PegasusFields.GAME: (GdfFields.TITLE, export_string),
+    PegasusFields.FILE: (GdfFields.PATH, export_rom),
+    PegasusFields.DEVELOPER: (GdfFields.DEVELOPER, export_string),
+    PegasusFields.PUBLISHER: (GdfFields.PUBLISHER, export_string),
+    PegasusFields.GENRE: (GdfFields.TAGS, export_string),
+    PegasusFields.DESCRIPTION: (GdfFields.DESCRIPTION, export_description),
+    PegasusFields.RELEASE: (GdfFields.RELEASEDATE, export_release),
+    PegasusFields.PLAYERS: (GdfFields.PLAYERS, export_players),
+    PegasusFields.RATING: (GdfFields.RATING, export_rating),
+    PegasusFields.ASSETS_BOXFRONT: ("cover", export_media),
+    PegasusFields.ASSETS_SCREENSHOT: ("screenshot", export_media),
+    PegasusFields.ASSETS_WHEEL: ("wheel", export_media),
+    PegasusFields.ASSETS_MARQUEE: ("marquee", export_media),
+    PegasusFields.ASSETS_VIDEO: ("video", export_media)
 }
 
 class PegasusMetadata:
@@ -79,9 +82,9 @@ class PegasusMetadata:
     def __generate_entry(self, entry):
 
         return "\n".join(
-            "%s: %s" % (destination, exporter(self.context, entry[source]))
-            for destination, (source, exporter) in PEGASUS_EXPORTER.items()
-            if source in entry
+            "%s: %s" % (key, value)
+            for (key, value) in execute_exporter(PEGASUS_EXPORTER, self, entry)
+            if value and len(value)
         )
 
 # metadata_filename = "D:\\Atari 7800 [US]\\metadata.pegasus.txt"

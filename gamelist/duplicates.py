@@ -3,7 +3,6 @@ from itertools import groupby
 from operator import itemgetter
 
 from tools import get_roms
-from platforms import ROM_EXTENSIONS
 from skyscraper import SkyscraperMetadata
 
 def filter_entry(entry):
@@ -19,8 +18,8 @@ def filter_entry(entry):
 
 def duplicates_recursive(context):
 
-    gamedb = SkyscraperMetadata().read(context.media_directory)
-    roms = get_roms(context.roms_directory, ROM_EXTENSIONS.get(context.platform))
+    gamedb = SkyscraperMetadata().read(context["media_directory"])
+    roms = get_roms(context["roms_directory"], context["extensions"])
 
     entries = sorted((
         (game["title"].upper(), roms[checksum])
@@ -28,17 +27,18 @@ def duplicates_recursive(context):
     )
 
     return dict(
-        (group, list(map(itemgetter(1), items)))
-        for group, items in groupby(entries, key=itemgetter(0))
+        (group, list(map(itemgetter(1), grouper)))
+        for group, grouper in groupby(entries, key=itemgetter(0))
     )
 
 def duplicates_region(context):
 
-    gamedb = SkyscraperMetadata().read(context.media_directory)
-    roms = get_roms(context.roms_directory, ROM_EXTENSIONS.get(context.platform))
+    roms_directory = context["roms_directory"]
+    roms = get_roms(roms_directory, context["extensions"])
+    gamedb = SkyscraperMetadata().read(context["media_directory"])
 
     entries = sorted(
-        ((game["title"].upper(), str(Path(roms[checksum]).relative_to(context.roms_directory)))
+        ((game["title"].upper(), str(Path(roms[checksum]).relative_to(roms_directory)))
          for (checksum, game) in gamedb.items()),
         key=filter_entry
     )

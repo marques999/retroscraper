@@ -6,6 +6,7 @@ from pathlib import Path, PurePath
 from argparse import ArgumentParser
 
 from tools import get_roms
+from organize import organize_roms
 from pegasus import PegasusMetadata
 from platforms import ROM_EXTENSIONS
 from skyscraper import SkyscraperMetadata
@@ -25,7 +26,6 @@ class GamelistContext:
         self.roms_directory = roms_directory
         self.media_directory = media_directory
 
-
 def filter_games(context, gamedb):
 
     gamedb_missing = []
@@ -41,8 +41,8 @@ def filter_games(context, gamedb):
 
         if missing_medias:
             gamedb_missing.append((roms[checksum], missing_medias))
-        else:
-            gamedb_available.append((roms[checksum], checksum, game))
+        #else:
+        gamedb_available.append((roms[checksum], checksum, game))
 
     return sorted(gamedb_available, key=itemgetter(0)), gamedb_missing
 
@@ -57,9 +57,9 @@ def get_missing_medias(context, game):
 def get_required_medias(context):
 
     return set(
-        media[len("no_"):-1]
-        for media in ["no_covers", "no_marquees", "no_screenshots", "no_wheels"]
-        if media not in context or context[media] == False
+        media
+        for media in ["covers", "marquees", "screenshots", "wheels"]
+        if "no_" + media not in context or context["no_" + media] == False
     )
 
 if __name__ == "__main__":
@@ -118,9 +118,9 @@ if __name__ == "__main__":
 
     if arguments.debug:
 
-        from organize import organize_roms
+        for entry in organize_roms(context, gamedb_available):
 
-        for (source, destination) in organize_roms(context, gamedb_available):
+            source, destination = entry["rom"]
 
             print("%s[ COPY ]%s %s -> %s%s" % (
                 colorama.Fore.GREEN,
@@ -130,7 +130,7 @@ if __name__ == "__main__":
                 destination
             ))
 
-        exporter.debug(gamedb_available)
+        print(exporter.debug(gamedb_available))
 
     else:
 

@@ -4,7 +4,6 @@ from itertools import groupby
 from operator import itemgetter
 
 from deepmerge import merge
-from platforms import ROM_EXTENSIONS
 from tools import digest_file, get_files, get_roms
 
 def remove_extension(filename):
@@ -36,21 +35,20 @@ def get_duplicates(media_directory, roms_lookup):
 
 def check_assets(context):
 
-    covers = get_checksums(context.media_directory / "covers" / "screenscraper")
-    wheels = get_checksums(context.media_directory / "wheels" / "screenscraper")
-    screenshots = get_checksums(context.media_directory / "screenshots" / "screenscraper")
-    roms = get_roms(context.roms_directory, ROM_EXTENSIONS.get(context.platform))
+    medias = [
+        get_checksums(context["media_directory"] / media / "screenscraper")
+        for media in context["medias"]
+    ]
 
-    available_union = covers | wheels | screenshots
-    available_intersection = covers & wheels & screenshots
-    missing = available_union.symmetric_difference(available_intersection)
+    roms = get_roms(context["roms_directory"], context["extensions"])
+    missing = set.union(*medias).symmetric_difference(set.intersection(*medias))
 
     return list(map(roms.get, filter(roms.get, missing)))
 
 def check_yennie(context):
 
-    roms = get_roms(context.roms_directory, ROM_EXTENSIONS.get(context.platform))
+    roms = get_roms(context["roms_directory"], context["extensions"])
 
     return reduce(lambda result, media: merge(result, get_duplicates(
-        context.media_directory / media / "screenscraper", roms
-    )), ["screenshots", "covers", "wheels"], {})
+        context["media_directory"] / media / "screenscraper", roms
+    )), context["medias"], {})
