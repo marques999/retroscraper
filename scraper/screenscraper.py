@@ -3,17 +3,12 @@
 import operator
 import requests
 
+from shared import handlers
 from shared.tools import export
 from shared.gdf import GdfFields, GdfRegion
 
 from scraper.thread import ScraperResponse
 from scraper.tools import remove_keys, unmagic, parse_datetime
-
-def export_default(context, value):
-    return str(value)
-
-def export_integer(context, value):
-    return int(value, 10)
 
 def export_rating(context, value):
     return int(value["text"], 10)
@@ -93,10 +88,9 @@ def export_media(context, value):
         if resource["parent"] == "jeu"
     ]
 
-
-SCREENSCRAPER_GENRES_EXPORTER = {
-    GdfFields.ID: ("id", export_integer),
-    GdfFields.PARENT: ("parentid", export_integer),
+SCREENSCRAPER_GENRES = {
+    GdfFields.ID: ("id", handlers.integer),
+    GdfFields.PARENT: ("parentid", handlers.integer),
     GdfFields.PRIMARY: ("principale", export_boolean),
     GdfFields.DESCRIPTION: ("noms", export_localizable)
 }
@@ -104,18 +98,18 @@ SCREENSCRAPER_GENRES_EXPORTER = {
 def export_genres(context, values):
 
     return [
-        export(SCREENSCRAPER_GENRES_EXPORTER, {}, genre)
+        export(SCREENSCRAPER_GENRES, {}, genre)
         for genre in values
     ]
 
-SCREENSCRAPER_ROM_EXPORTER = {
-    GdfFields.ID: ("id", export_integer),
-    GdfFields.PARENT: ("romcloneof", export_integer),
-    "filename": ("romfilename", export_default),
-    "length": ("romsize", export_default),
-    "crc32": ("romcrc", export_default),
-    "md5": ("romsmd5", export_default),
-    "sha1": ("romsha1", export_default),
+SCREENSCRAPER_ROM = {
+    GdfFields.ID: ("id", handlers.integer),
+    GdfFields.PARENT: ("romcloneof", handlers.integer),
+    "filename": ("romfilename", handlers.string),
+    "length": ("romsize", handlers.string),
+    "crc32": ("romcrc", handlers.string),
+    "md5": ("romsmd5", handlers.string),
+    "sha1": ("romsha1", handlers.string),
     "beta": ("beta", export_boolean),
     "demo": ("demo", export_boolean),
     "prototype": ("proto", export_boolean),
@@ -125,20 +119,20 @@ SCREENSCRAPER_ROM_EXPORTER = {
     "alternate": ("alt", export_boolean),
     "best": ("best", export_boolean),
     "netplay": ("netplay", export_boolean),
-    "region": ("romregions", export_default)
+    "region": ("romregions", handlers.string)
 }
 
 def export_rom(context, value):
-    return export(SCREENSCRAPER_ROM_EXPORTER, {}, value)
+    return export(SCREENSCRAPER_ROM, {}, value)
 
 SCREENSCRAPER_PARSER = {
-    GdfFields.ID: ("id", export_integer),
-    GdfFields.PARENT: ("cloneof", export_integer),
+    GdfFields.ID: ("id", handlers.integer),
+    GdfFields.PARENT: ("cloneof", handlers.integer),
     GdfFields.TITLE: ("noms", export_regionizable),
     GdfFields.REGION: ("regions", export_region),
     GdfFields.PUBLISHER: ("editeur", export_field("text")),
     GdfFields.DEVELOPER: ("developpeur", export_field("text")),
-    GdfFields.AGES: ("classifications", export_default),
+    GdfFields.AGES: ("classifications", handlers.string),
     GdfFields.PLAYERS: ("joueurs", export_field("text")),
     GdfFields.RATING: ("note", export_rating),
     GdfFields.FAVORITE: ("topstaff", export_boolean),
@@ -150,7 +144,7 @@ SCREENSCRAPER_PARSER = {
     GdfFields.IGNORE: ("notgame", export_boolean)
 }
 
-class SkyscraperProvider:
+class ScreenscraperProvider:
 
     ID = "screenscraper"
     URL = "https://www.screenscraper.fr/api2"
