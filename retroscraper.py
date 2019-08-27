@@ -4,10 +4,10 @@ import os
 import requests
 import colorama
 
+from shared.gdf import GdfRegion
 from shared.platforms import PLATFORMS
 from multiprocessing.pool import ThreadPool
 
-from scraper.gdf import GdfRegion
 from scraper.cache import CacheProvider
 from scraper.tools import generate_digest, unmagic
 from scraper.screenscraper import SkyscraperProvider

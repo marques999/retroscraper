@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from operator import itemgetter
-from scraper.tools import merge_dictionaries
-
 class GdfRegion:
     GERMANY = 115
     ASIA = 114
@@ -47,6 +44,7 @@ class GdfRegion:
 
 class GdfFields:
     ID = "id"
+    PATH = "path"
     TITLE = "title"
     PARENT = "parent"
     REGION = "region"
@@ -62,23 +60,37 @@ class GdfFields:
     FAVORITE = "favorite"
     RATING = "rating"
     CHECKSUM = "checksum"
+    COVER = "cover"
+    SCREENSHOT = "screenshot"
+    WHEEL = "wheel"
+    MARQUEE = "marquee"
+    VIDEO = "video"
 
-def localize_genres(items, language, region):
+class EsFields:
+    NAME = "name",
+    PATH = "path"
+    RATING = "rating"
+    DESC = "desc"
+    IMAGE = "image"
+    RELEASEDATE = "releasedate"
+    DEVELOPER = "developer"
+    PUBLISHER = "publisher"
+    GENRE = "genre"
+    PLAYERS = "players"
+    KIDGAME = "kidgame"
 
-    for genre in items:
-        genre[GdfFields.DESCRIPTION] = genre[GdfFields.DESCRIPTION][language]
-
-def localize(response, language, region):
-
-    LOCALIZERS = {
-        GdfFields.GENRE: localize_genres,
-        GdfFields.TITLE: itemgetter(region),
-        GdfFields.RELEASE: itemgetter(region),
-        GdfFields.DESCRIPTION: itemgetter(language)
-    }
-
-    return merge_dictionaries(response, {
-        destination: handler(response[destination], language, region)
-        for (destination, handler) in LOCALIZERS.items()
-        if destination in response
-    })
+class PegasusFields:
+    GAME = "game"
+    FILE = "file"
+    DEVELOPER = "developer"
+    PUBLISHER = "publisher"
+    GENRE = "genre"
+    DESCRIPTION = "description"
+    RELEASE = "release"
+    PLAYERS = "players"
+    RATING = "rating"
+    ASSETS_VIDEO = "assets.video"
+    ASSETS_WHEEL = "assets.wheel"
+    ASSETS_MARQUEE = "assets.marquee"
+    ASSETS_BOXFRONT = "assets.boxfront"
+    ASSETS_SCREENSHOT = "assets.screenshots"

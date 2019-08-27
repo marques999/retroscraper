@@ -14,15 +14,6 @@ def remove_keys(collection, keys):
          lambda pair: pair[0] not in keys, collection.items()
     ))
 
-def merge_dictionaries(*collections):
-
-    result = {}
-
-    for collection in collections:
-        result.update(collection.copy())
-
-    return result
-
 def export(metadata, exporter):
 
     return dict(

@@ -4,7 +4,7 @@ from pathlib import PurePath
 from datetime import datetime
 from xml.etree import ElementTree
 
-from exporter.gdf import EsFields, GdfFields
+from shared.gdf import EsFields, GdfFields
 from exporter.tools import export, prettify_xml, export_media
 
 class EsExporter:

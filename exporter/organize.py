@@ -2,8 +2,8 @@
 
 from os import path
 from pathlib import PurePath
+from shared.gdf import GdfFields
 
-from exporter.gdf import GdfFields
 from exporter.skyscraper import SkyscraperImporter
 from exporter.tools import get_roms, export_media
 from exporter.inflection import singularize, pluralize

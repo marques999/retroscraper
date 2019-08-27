@@ -3,8 +3,7 @@
 from re import sub
 from os import path
 from textwrap import TextWrapper, dedent
-
-from exporter.gdf import GdfFields, PegasusFields
+from shared.gdf import GdfFields, PegasusFields
 from exporter.tools import parse_datetime, export, export_media
 
 def export_media2(media):
@@ -50,9 +49,9 @@ class PegasusExporter:
         PegasusFields.FILE: (GdfFields.PATH, export_rom),
         PegasusFields.DEVELOPER: (GdfFields.DEVELOPER, export_string),
         PegasusFields.PUBLISHER: (GdfFields.PUBLISHER, export_string),
-        PegasusFields.GENRE: (GdfFields.TAGS, export_string),
+        PegasusFields.GENRE: (GdfFields.GENRE, export_string),
         PegasusFields.DESCRIPTION: (GdfFields.DESCRIPTION, export_description),
-        PegasusFields.RELEASE: (GdfFields.RELEASEDATE, export_release),
+        PegasusFields.RELEASE: (GdfFields.RELEASE, export_release),
         PegasusFields.PLAYERS: (GdfFields.PLAYERS, export_players),
         PegasusFields.RATING: (GdfFields.RATING, export_rating),
         PegasusFields.ASSETS_BOXFRONT: (GdfFields.COVER, export_media2("covers")),

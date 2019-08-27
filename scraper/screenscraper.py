@@ -4,7 +4,7 @@ import operator
 import requests
 
 from scraper.thread import ScraperResponse
-from scraper.gdf import GdfFields, GdfRegion
+from shared.gdf import GdfFields, GdfRegion
 from scraper.tools import export, remove_keys, unmagic, parse_datetime
 
 def export_rating(rating):
