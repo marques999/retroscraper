@@ -1,27 +1,14 @@
 # -*- coding: utf-8 -*-
 
 import os
-import re
 import gzip
 
 from hashlib import sha1
 from xml.dom import minidom
 from zipfile import ZipFile
-from pathlib import PurePath
-from datetime import datetime
 from operator import itemgetter
 from shared.gdf import GdfFields
 from xml.etree import ElementTree
-
-DATETIME_REGEX = [
-    (re.compile("^\\d{4}$"), "%Y"),
-    (re.compile("^\\d{4}-[0-1]{1}\\d{1}$"), "%Y-%m"),
-    (re.compile("^\\d{4}-[0-1]{1}\\d{1}-[0-3]{1}\\d{1}$"), "%Y-%m-%d"),
-    (re.compile("^[0-1]{1}\\d{1}/[0-3]{1}\\d{1}/\\d{4}$"), "%m/%d/%Y"),
-    (re.compile("^\\d{4}-[a-zA-Z]{3}-[0-3]{1}\\d{1}$"), "%Y-%M-%d"),
-    (re.compile("^[a-zA-z]{3}, \\d{4}$"), "%M, %Y"),
-    (re.compile("^[a-zA-z]{3} ([0-3]{1})?\\d{1}, \\d{4}$"), "%M %d, %Y")
-]
 
 def get_sha1(stream):
 
@@ -50,31 +37,6 @@ def digest_zip(filename):
             return get_sha1(zipfile.read(entry))
 
     return get_sha1(filename)
-
-def parse_datetime(timestamp):
-
-    for (regex, formatter) in DATETIME_REGEX:
-        if regex.search(timestamp):
-            return datetime.strptime(timestamp, formatter)
-
-    return datetime.now()
-
-def export(exporter, context, entry):
-
-     return (
-         (destination, exporter(context, entry[source]))
-         for destination, (source, exporter) in exporter.items()
-         if source in entry
-     )
-
-def get_files(directory, extensions):
-
-    return (
-        os.path.join(root, filename)
-        for root, _, filenames in os.walk(directory)
-        for filename in filenames
-        if not extensions or os.path.splitext(filename)[-1].lower() in extensions
-    )
 
 def get_roms(roms_directory, extensions):
 

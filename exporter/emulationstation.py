@@ -4,47 +4,56 @@ from pathlib import PurePath
 from datetime import datetime
 from xml.etree import ElementTree
 
-from shared.gdf import EsFields, GdfFields
-from exporter.tools import export, prettify_xml, export_media
+from shared import handlers
+from shared.tools import export
+from shared.gdf import GdfFields
 
-class EsExporter:
+from exporter.tools import prettify_xml, export_media
 
-    @staticmethod
-    def export_string(context, value):
-        return value
+class EsFields(object):
 
-    @staticmethod
-    def export_kidgame(context, value):
-        return 1 <= int(value) <= 10
+    NAME = "name",
+    PATH = "path"
+    RATING = "rating"
+    DESC = "desc"
+    IMAGE = "image"
+    RELEASEDATE = "releasedate"
+    DEVELOPER = "developer"
+    PUBLISHER = "publisher"
+    GENRE = "genre"
+    PLAYERS = "players"
+    KIDGAME = "kidgame"
+    WHEEL = "wheel"
+    MARQUEE = "marquee"
+    VIDEO = "video"
 
-    @staticmethod
-    def export_players(context, value):
-        return value[value.rfind("-") + 1:]
+def export_kidgame(context, value):
+    return 1 <= int(value) <= 10
 
-    @staticmethod
-    def export_releasedate(context, value):
-        return value.strftime("%Y%m%dT%H%M%S")
+def export_players(context, value):
+    return value[value.rfind("-") + 1:]
 
-    @staticmethod
-    def export_path(context, value):
-        return str(context["content_directory"] / (value + ".a52"))
+def export_path(context, value):
+    return str(context["content_directory"] / (value + ".a52"))
 
-    ESGAME_MAPPER = {
-        EsFields.PATH: (GdfFields.CHECKSUM, export_path),
-        EsFields.NAME: (GdfFields.TITLE, export_string),
-        EsFields.IMAGE: (GdfFields.SCREENSHOT, export_media),
-        EsFields.WHEEL: (GdfFields.WHEEL, export_media),
-        EsFields.MARQUEE: (GdfFields.MARQUEE, export_media),
-        EsFields.VIDEO: (GdfFields.VIDEO, export_media),
-        EsFields.RATING: (GdfFields.RATING, export_string),
-        EsFields.DESC: (GdfFields.DESCRIPTION, export_string),
-        EsFields.RELEASEDATE: (GdfFields.RELEASE, export_string),
-        EsFields.DEVELOPER: (GdfFields.DEVELOPER, export_string),
-        EsFields.PUBLISHER: (GdfFields.PUBLISHER, export_string),
-        EsFields.GENRE: (GdfFields.GENRE, export_string),
-        EsFields.PLAYERS: (GdfFields.PLAYERS, export_players),
-        EsFields.KIDGAME: (GdfFields.AGES, export_kidgame),
-    }
+EMULATIONSTATION_EXPORTER = {
+    EsFields.PATH: (GdfFields.CHECKSUM, export_path),
+    EsFields.NAME: (GdfFields.TITLE, handlers.string),
+    EsFields.IMAGE: (GdfFields.SCREENSHOT, export_media),
+    EsFields.WHEEL: (GdfFields.WHEEL, export_media),
+    EsFields.MARQUEE: (GdfFields.MARQUEE, export_media),
+    EsFields.VIDEO: (GdfFields.VIDEO, export_media),
+    EsFields.RATING: (GdfFields.RATING, handlers.string),
+    EsFields.DESC: (GdfFields.DESCRIPTION, handlers.string),
+    EsFields.RELEASEDATE: (GdfFields.RELEASE, handlers.timestamp("%Y%m%dT%H%M%S")),
+    EsFields.DEVELOPER: (GdfFields.DEVELOPER, handlers.string),
+    EsFields.PUBLISHER: (GdfFields.PUBLISHER, handlers.string),
+    EsFields.GENRE: (GdfFields.GENRE, handlers.string),
+    EsFields.PLAYERS: (GdfFields.PLAYERS, export_players),
+    EsFields.KIDGAME: (GdfFields.AGES, export_kidgame),
+}
+
+class EsExporter(object):
 
     def __init__(self):
 
@@ -73,7 +82,7 @@ class EsExporter:
     def __generate_entry(self, root, entry):
 
         root = ElementTree.SubElement(root, "game")
-        esgame = export(ESGAME_MAPPER, self, entry)
+        esgame = export(EMULATIONSTATION_EXPORTER, self, entry)
 
         for (key, value) in esgame.items():
             ElementTree.SubElement(root, key).text = value

@@ -14,14 +14,6 @@ def remove_keys(collection, keys):
          lambda pair: pair[0] not in keys, collection.items()
     ))
 
-def export(metadata, exporter):
-
-    return dict(
-        (destination, exporter(metadata[source]))
-        for destination, (source, exporter) in exporter.items()
-        if source in metadata
-    )
-
 def unmagic(contents):
 
     return "".join(

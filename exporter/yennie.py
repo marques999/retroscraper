@@ -5,8 +5,10 @@ from functools import reduce
 from itertools import groupby
 from operator import itemgetter
 
+from shared.tools import get_files
+
 from exporter.deepmerge import merge
-from exporter.tools import digest_file, get_files, get_roms
+from exporter.tools import digest_file, get_roms
 
 def remove_extension(filename):
     return path.basename(path.splitext(filename)[0])

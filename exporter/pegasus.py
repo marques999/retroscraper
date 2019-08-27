@@ -2,27 +2,43 @@
 
 from re import sub
 from os import path
+from datetime import datetime
 from textwrap import TextWrapper, dedent
-from shared.gdf import GdfFields, PegasusFields
-from exporter.tools import parse_datetime, export, export_media
 
-def export_media2(media):
-    return lambda context, value: str(export_media(context, media, value)[1])
+from shared import handlers
+from shared.tools import export
+from shared.gdf import GdfFields
 
-def export_string(context, value):
-    return value
+from exporter.tools import export_media
+
+class PegasusFields(object):
+
+    GAME = "game"
+    FILE = "file"
+    DEVELOPER = "developer"
+    PUBLISHER = "publisher"
+    GENRE = "genre"
+    DESCRIPTION = "description"
+    RELEASE = "release"
+    PLAYERS = "players"
+    RATING = "rating"
+    ASSETS_VIDEO = "assets.video"
+    ASSETS_WHEEL = "assets.wheel"
+    ASSETS_MARQUEE = "assets.marquee"
+    ASSETS_BOXFRONT = "assets.boxfront"
+    ASSETS_SCREENSHOT = "assets.screenshots"
+
+def export_players(context, value):
+    return value[value.rfind("-") + 1:]
 
 def export_rating(context, value):
     return "{0:.0%}".format(float(value))
 
-def export_players(context, value):
-        return value[value.rfind("-") + 1:]
-
-def export_release(context, value):
-        return parse_datetime(value).strftime("%Y-%m-%d")
-
 def export_rom(context, value):
-        return str(context["roms_directory"] / value).replace("\\", "/")
+    return str(context["roms_directory"] / value).replace("\\", "/")
+
+def export_media2(media):
+    return lambda context, value: str(export_media(context, media, value)[1])
 
 def export_description(context, value):
 
@@ -42,24 +58,24 @@ def export_description(context, value):
 
         return "\n  " + "\n  ".join(wrapped)
 
-class PegasusExporter:
+PEGASUS_EXPORTER = {
+    PegasusFields.GAME: (GdfFields.TITLE, handlers.string),
+    PegasusFields.FILE: (GdfFields.PATH, export_rom),
+    PegasusFields.DEVELOPER: (GdfFields.DEVELOPER, handlers.string),
+    PegasusFields.PUBLISHER: (GdfFields.PUBLISHER, handlers.string),
+    PegasusFields.GENRE: (GdfFields.GENRE, handlers.string),
+    PegasusFields.DESCRIPTION: (GdfFields.DESCRIPTION, export_description),
+    PegasusFields.RELEASE: (GdfFields.RELEASE, handlers.timestamp("%Y-%m-%d")),
+    PegasusFields.PLAYERS: (GdfFields.PLAYERS, export_players),
+    PegasusFields.RATING: (GdfFields.RATING, export_rating),
+    PegasusFields.ASSETS_BOXFRONT: (GdfFields.COVER, export_media2("covers")),
+    PegasusFields.ASSETS_SCREENSHOT: (GdfFields.SCREENSHOT, export_media2("screenshots")),
+    PegasusFields.ASSETS_WHEEL: (GdfFields.WHEEL, export_media2("wheels")),
+    PegasusFields.ASSETS_MARQUEE: (GdfFields.MARQUEE, export_media2("marquees")),
+    PegasusFields.ASSETS_VIDEO: (GdfFields.VIDEO, export_media2("videos"))
+}
 
-    PEGASUS_MAPPER = {
-        PegasusFields.GAME: (GdfFields.TITLE, export_string),
-        PegasusFields.FILE: (GdfFields.PATH, export_rom),
-        PegasusFields.DEVELOPER: (GdfFields.DEVELOPER, export_string),
-        PegasusFields.PUBLISHER: (GdfFields.PUBLISHER, export_string),
-        PegasusFields.GENRE: (GdfFields.GENRE, export_string),
-        PegasusFields.DESCRIPTION: (GdfFields.DESCRIPTION, export_description),
-        PegasusFields.RELEASE: (GdfFields.RELEASE, export_release),
-        PegasusFields.PLAYERS: (GdfFields.PLAYERS, export_players),
-        PegasusFields.RATING: (GdfFields.RATING, export_rating),
-        PegasusFields.ASSETS_BOXFRONT: (GdfFields.COVER, export_media2("covers")),
-        PegasusFields.ASSETS_SCREENSHOT: (GdfFields.SCREENSHOT, export_media2("screenshots")),
-        PegasusFields.ASSETS_WHEEL: (GdfFields.WHEEL, export_media2("wheels")),
-        PegasusFields.ASSETS_MARQUEE: (GdfFields.MARQUEE, export_media2("marquees")),
-        PegasusFields.ASSETS_VIDEO: (GdfFields.VIDEO, export_media2("videos"))
-    }
+class PegasusExporter(object):
 
     def __init__(self, context):
 
@@ -84,7 +100,7 @@ class PegasusExporter:
 
         return "\n".join(
             "%s: %s" % (key, value)
-            for (key, value) in export(self.PEGASUS_MAPPER, self.context, entry[1])
+            for (key, value) in export(self.PEGASUS_EXPORTER, self.context, entry[1])
             if value and len(value)
         )
 

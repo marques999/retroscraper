@@ -8,16 +8,17 @@ from operator import itemgetter
 from pathlib import Path, PurePath
 from argparse import ArgumentParser
 
-from exporter.tools import get_roms
 from shared.platforms import PLATFORMS
+
+from exporter.tools import get_roms
 from exporter.organize import organize_roms
 from exporter.pegasus import PegasusExporter
+from exporter.emulationstation import EsExporter
 from exporter.skyscraper import SkyscraperImporter
 
 EXPORTERS = {
-    "attractmode": None,
-    "emulationstation": None,
-    "pegasus": PegasusExporter
+    "pegasus": PegasusExporter,
+    "emulationstation": EsExporter
 }
 
 def filter_games(context, gamedb):

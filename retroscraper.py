@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
 import os
@@ -5,7 +6,9 @@ import requests
 import colorama
 
 from shared.gdf import GdfRegion
+from shared.tools import get_files
 from shared.platforms import PLATFORMS
+
 from multiprocessing.pool import ThreadPool
 
 from scraper.cache import CacheProvider
@@ -55,14 +58,8 @@ class Retroscraper(object):
 
     def from_path(self, path):
 
-        roms = (
-            os.path.join(root, filename)
-            for root, _, filenames in os.walk(path)
-            for filename in filenames
-            if not self.extensions or os.path.splitext(filename)[-1] in self.extensions
-        )
-
         missingdb = []
+        roms = get_files(path, self.extensions)
         context = list(map(generate_digest, roms))
         results = self.pool.map(self.__scrape_rom, context)
 

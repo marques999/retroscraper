@@ -3,21 +3,32 @@
 import operator
 import requests
 
-from scraper.thread import ScraperResponse
+from shared.tools import export
 from shared.gdf import GdfFields, GdfRegion
-from scraper.tools import export, remove_keys, unmagic, parse_datetime
 
-def export_rating(rating):
-    return int(rating["text"], 10)
+from scraper.thread import ScraperResponse
+from scraper.tools import remove_keys, unmagic, parse_datetime
 
-def export_boolean(value):
+def export_default(context, value):
+    return str(value)
+
+def export_integer(context, value):
+    return int(value, 10)
+
+def export_rating(context, value):
+    return int(value["text"], 10)
+
+def export_field(field):
+    return lambda _, value: value[field]
+
+def export_boolean(context, value):
     return value == "1" or value.lower() == "true"
 
-def export_release(release_dates):
+def export_release(context, value):
 
     return {
         region: parse_datetime(text)
-        for region, text in export_regionizable(release_dates).items()
+        for region, text in export_regionizable(context, value).items()
     }
 
 SCREENSCRAPER_REGIONS = {
@@ -62,48 +73,49 @@ SCREENSCRAPER_REGIONS = {
     "us": GdfRegion.USA
 }
 
-def export_region(region):
-    return get_region(region["shortname"])
+def export_region(context, value):
+    return get_region(value["shortname"])
 
 def get_region(region):
     return SCREENSCRAPER_REGIONS.get(region, GdfRegion.UNKNOWN)
 
-def export_regionizable(items):
-    return dict(map(lambda item: (get_region(item["region"]), item["text"]), items))
+def export_regionizable(context, values):
+    return dict(map(lambda item: (get_region(item["region"]), item["text"]), values))
 
-def export_localizable(items):
-    return dict(map(lambda item: (item["langue"], item["text"]), items))
+def export_localizable(context, values):
+    return dict(map(lambda item: (item["langue"], item["text"]), values))
 
-def export_media(media):
+def export_media(context, value):
 
     return [
         remove_keys(resource, ["crc", "md5", "parent", "url"])
-        for resource in media
+        for resource in value
         if resource["parent"] == "jeu"
     ]
 
+
 SCREENSCRAPER_GENRES_EXPORTER = {
-    GdfFields.ID: ("id", int),
-    GdfFields.PARENT: ("parentid", int),
+    GdfFields.ID: ("id", export_integer),
+    GdfFields.PARENT: ("parentid", export_integer),
     GdfFields.PRIMARY: ("principale", export_boolean),
     GdfFields.DESCRIPTION: ("noms", export_localizable)
 }
 
-def export_genres(genres):
+def export_genres(context, values):
 
     return [
-        export(genre, SCREENSCRAPER_GENRES_EXPORTER)
-        for genre in genres
+        export(SCREENSCRAPER_GENRES_EXPORTER, {}, genre)
+        for genre in values
     ]
 
 SCREENSCRAPER_ROM_EXPORTER = {
-    GdfFields.ID: ("id", int),
-    GdfFields.PARENT: ("romcloneof", int),
-    "filename": ("romfilename", str),
-    "length": ("romsize", str),
-    "crc32": ("romcrc", str),
-    "md5": ("romsmd5", str),
-    "sha1": ("romsha1", str),
+    GdfFields.ID: ("id", export_integer),
+    GdfFields.PARENT: ("romcloneof", export_integer),
+    "filename": ("romfilename", export_default),
+    "length": ("romsize", export_default),
+    "crc32": ("romcrc", export_default),
+    "md5": ("romsmd5", export_default),
+    "sha1": ("romsha1", export_default),
     "beta": ("beta", export_boolean),
     "demo": ("demo", export_boolean),
     "prototype": ("proto", export_boolean),
@@ -113,21 +125,21 @@ SCREENSCRAPER_ROM_EXPORTER = {
     "alternate": ("alt", export_boolean),
     "best": ("best", export_boolean),
     "netplay": ("netplay", export_boolean),
-    "region": ("romregions", lambda region: region[:region.index(",")])
+    "region": ("romregions", export_default)
 }
 
-def export_rom(response):
-    return export(response, SCREENSCRAPER_ROM_EXPORTER)
+def export_rom(context, value):
+    return export(SCREENSCRAPER_ROM_EXPORTER, {}, value)
 
 SCREENSCRAPER_PARSER = {
-    GdfFields.ID: ("id", int),
-    GdfFields.PARENT: ("cloneof", int),
+    GdfFields.ID: ("id", export_integer),
+    GdfFields.PARENT: ("cloneof", export_integer),
     GdfFields.TITLE: ("noms", export_regionizable),
     GdfFields.REGION: ("regions", export_region),
-    GdfFields.PUBLISHER: ("editeur", operator.itemgetter("text")),
-    GdfFields.DEVELOPER: ("developpeur", operator.itemgetter("text")),
-    GdfFields.AGES: ("classifications", str),
-    GdfFields.PLAYERS: ("joueurs", operator.itemgetter("text")),
+    GdfFields.PUBLISHER: ("editeur", export_field("text")),
+    GdfFields.DEVELOPER: ("developpeur", export_field("text")),
+    GdfFields.AGES: ("classifications", export_default),
+    GdfFields.PLAYERS: ("joueurs", export_field("text")),
     GdfFields.RATING: ("note", export_rating),
     GdfFields.FAVORITE: ("topstaff", export_boolean),
     GdfFields.DESCRIPTION: ("synopsis", export_localizable),
@@ -173,7 +185,7 @@ class SkyscraperProvider:
             return ScraperResponse(context.filename, self.ID)
 
         json = response.json()["response"]["jeu"]
-        metadata = export(json, SCREENSCRAPER_PARSER)
+        metadata = export(SCREENSCRAPER_PARSER, {}, json)
 
         return ScraperResponse(context.filename, metadata, True)
 
