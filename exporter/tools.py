@@ -7,8 +7,10 @@ from hashlib import sha1
 from xml.dom import minidom
 from zipfile import ZipFile
 from operator import itemgetter
-from shared.gdf import GdfFields
 from xml.etree import ElementTree
+
+from shared.gdf import GdfFields
+from shared.tools import merge_dictionaries
 
 def get_sha1(stream):
 
@@ -69,3 +71,49 @@ def export_media(context, media, resource):
         context["media_directory"] / resource,
         context["output_directory"] / media / os.path.basename(resource)
     )
+
+def localize_genres(items, language, region):
+
+    for genre in items:
+        genre[GdfFields.DESCRIPTION] = genre[GdfFields.DESCRIPTION][language]
+
+def localize(response, language, region):
+
+    LOCALIZERS = {
+        GdfFields.GENRE: localize_genres,
+        GdfFields.TITLE: itemgetter(region),
+        GdfFields.RELEASE: itemgetter(region),
+        GdfFields.DESCRIPTION: itemgetter(language)
+    }
+
+    return merge_dictionaries(response, {
+        destination: handler(response[destination], language, region)
+        for (destination, handler) in LOCALIZERS.items()
+        if destination in response
+    })
+
+def __merge_dictionary(path, source, destination):
+
+    for key, value in destination.items():
+
+        if key in source:
+            source[key] = __merge_recursive(path + [key], source[key], value)
+        else:
+            source[key] = value
+
+    return source
+
+def __merge_recursive(path, source, destination):
+
+    if not (isinstance(source, type(destination)) or isinstance(destination, type(source))):
+        return destination
+    elif isinstance(destination, dict):
+        return __merge_dictionary(path, source, destination)
+    elif isinstance(destination, list):
+        return source + destination
+    else:
+        return destination
+
+def merge(source, destination):
+
+    return __merge_recursive([], source, destination)

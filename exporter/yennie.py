@@ -4,11 +4,8 @@ from os import path
 from functools import reduce
 from itertools import groupby
 from operator import itemgetter
-
 from shared.tools import get_files
-
-from exporter.deepmerge import merge
-from exporter.tools import digest_file, get_roms
+from exporter.tools import digest_file, get_roms, merge
 
 def remove_extension(filename):
 
