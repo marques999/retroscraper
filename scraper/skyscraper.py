@@ -39,7 +39,7 @@ SKYSCRAPER_PARSER = {
     GdfFields.RELEASE: ("releasedate", chain_wrap(GdfRegion.WORLD, parse_datetime)),
     GdfFields.PLAYERS: ("players", handlers.string),
     GdfFields.DEVELOPER: ("developer", handlers.string),
-    GdfFields.PUBLISHER: ("publisher", chain_wrap("a", chain_wrap("b", chain_wrap("c", handlers.string))))
+    GdfFields.PUBLISHER: ("publisher", handlers.string)
 }
 
 class SkyscraperProvider(object):
