@@ -11,9 +11,11 @@ from exporter.deepmerge import merge
 from exporter.tools import digest_file, get_roms
 
 def remove_extension(filename):
+
     return path.basename(path.splitext(filename)[0])
 
 def get_checksums(directory):
+
     return set(map(remove_extension, get_files(directory, [".png"])))
 
 def get_duplicates(media_directory, roms):
@@ -28,10 +30,10 @@ def get_duplicates(media_directory, roms):
     for group, grouper in groupby(filenames, key=itemgetter(1)):
 
         checksums = map(remove_extension, map(itemgetter(0), grouper))
-        roms = list(map(roms.get, filter(roms.get, checksums)))
+        matches = list(map(roms.get, filter(roms.get, checksums)))
 
-        if len(roms) > 1:
-            duplicates[group] = roms
+        if len(matches) > 1:
+            duplicates[group] = matches
 
     return duplicates
 

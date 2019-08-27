@@ -4,11 +4,13 @@ import operator
 import requests
 
 from shared import handlers
-from shared.tools import export
 from shared.gdf import GdfFields, GdfRegion
+from shared.tools import export, parse_datetime
+
+from threading import BoundedSemaphore
 
 from scraper.thread import ScraperResponse
-from scraper.tools import remove_keys, unmagic, parse_datetime
+from scraper.tools import remove_keys, unmagic
 
 def export_rating(context, value):
     return int(value["text"], 10)
@@ -22,7 +24,7 @@ def export_boolean(context, value):
 def export_release(context, value):
 
     return {
-        region: parse_datetime(text)
+        region: parse_datetime(context, text)
         for region, text in export_regionizable(context, value).items()
     }
 
@@ -144,44 +146,86 @@ SCREENSCRAPER_PARSER = {
     GdfFields.IGNORE: ("notgame", export_boolean)
 }
 
+def parse_integer(value):
+
+    try:
+        return int(value)
+    except ValueError:
+        return 0
+
+def parse_response(response):
+
+    if response.status_code != 200:
+        return None, response.content
+
+    json = response.json()
+    header = json.get("header", {})
+
+    if header.get("success", "false") == "true" and "response" in json:
+        return json["response"], None
+    else:
+        return None, header["error"]
+
 class ScreenscraperProvider:
 
     ID = "screenscraper"
     URL = "https://www.screenscraper.fr/api2"
-    APIKEY = "158,211,229,216,192,247,142,172,205,168,210,233,187,208,204,212"
+    API_KEY = "158,211,229,216,192,247,142,172,205,168,210,233,187,208,204,212"
 
     def __init__(self, platform, username, password):
 
         self.authentication = {
-            "devid": "muldjord",
             "softname": "skyscraper",
-            "devpassword": unmagic(self.APIKEY),
+            "devid": "muldjord",
+            "devpassword": unmagic(self.API_KEY),
             "ssid": username,
             "sspassword": password
         }
 
+        self.blocked = False
+        threads = self.__get_limits()
+        self.__semaphore = BoundedSemaphore(threads)
         identifier = platform.get("scrapers", {}).get(self.ID, 0)
 
         if identifier > 0:
             self.authentication["systemeid"] = identifier
 
+    def __get_limits(self):
+
+        response, error = parse_response(requests.get(f"{self.URL}/ssuserInfos.php", {
+            "output": "json",
+            **self.authentication
+        }))
+
+        return 1 if error else parse_integer(response["ssuser"]["maxthreads"])
+
     def get_game(self, context):
 
-        response = requests.get(f"{self.URL}/jeuInfos.php", {
-            **self.authentication,
+        if self.blocked:
+            return ScraperResponse.error(context, self.ID)
+
+        query = {
             "output": "json",
-            "sha1": context.sha1,
+            **self.authentication,
             "md5": context.md5,
+            "sha1": context.sha1,
             "crc32": context.crc32
-        })
+        }
 
-        if response.status_code != 200:
-            return ScraperResponse(context.filename, self.ID)
+        self.__semaphore.acquire()
+        response, error = parse_response(requests.get(f"{self.URL}/jeuInfos.php", query))
+        self.__semaphore.release()
 
-        json = response.json()["response"]["jeu"]
-        metadata = export(SCREENSCRAPER_PARSER, {}, json)
+        if error:
+            return ScraperResponse.error(context, error)
 
-        return ScraperResponse(context.filename, metadata, True)
+        ssuser = response["ssuser"]
+        metadata = export(SCREENSCRAPER_PARSER, {}, response["jeu"])
+
+        if parse_integer(ssuser["requeststoday"]) >= parse_integer(ssuser["maxrequestsperday"]):
+            self.blocked = True
+
+        return ScraperResponse.success(context, metadata)
 
     def get_media(self, game, media):
 

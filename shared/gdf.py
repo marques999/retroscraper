@@ -46,6 +46,7 @@ class GdfFields:
     ID = "id"
     PATH = "path"
     TITLE = "title"
+    PLATFORM = "platform"
     PARENT = "parent"
     REGION = "region"
     PRIMARY = "primary"

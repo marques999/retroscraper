@@ -13,11 +13,13 @@ from multiprocessing.pool import ThreadPool
 
 from scraper.cache import CacheProvider
 from scraper.tools import generate_digest, unmagic
-from scraper.screenscraper import SkyscraperProvider
+from scraper.skyscraper import SkyscraperProvider
+from scraper.screenscraper import ScreenscraperProvider
 from scraper.thread import ScraperProgress, ScraperResponse
 
 SCRAPERS = {
-    SkyscraperProvider.ID: SkyscraperProvider
+    SkyscraperProvider.ID: SkyscraperProvider,
+    ScreenscraperProvider.ID: ScreenscraperProvider
 }
 
 def log_success(filename, scraper, title):
@@ -38,14 +40,31 @@ def log_failure(filename, scraper):
         scraper
     )
 
+def get_cpus():
+
+    if "NUMBER_OF_PROCESSORS" in os.environ:
+        return int(os.environ["NUMBER_OF_PROCESSORS"])
+
+    if hasattr(os, "sysconf"):
+
+        if "SC_NPROCESSORS_ONLN" not in os.sysconf_names:
+            return int(os.popen2("sysctl -n hw.ncpu")[1].read())
+
+        count = os.sysconf["SC_NPROCESSORS_ONLN"]
+
+        if isinstance(count, int) and count > 0:
+            return count
+
+    return 1
+
 class Retroscraper(object):
 
     def __init__(self, platform, scraper):
 
-        self.pool = ThreadPool(6)
-        self.progress = ScraperProgress()
         self.cache = CacheProvider(platform)
         self.scrapers = [self.cache]
+        self.progress = ScraperProgress()
+        self.pool = ThreadPool(get_cpus() * 2)
         self.extensions = PLATFORMS.get(platform, {}).get("extensions")
 
         if scraper in SCRAPERS:
@@ -98,7 +117,7 @@ class Retroscraper(object):
             if response.found:
                 return (scraper.ID, response)
 
-        return ("none", ScraperResponse(context.filename, {}, False, False))
+        return ("none", ScraperResponse.error(context.filename, "none"))
 
 if __name__ == "__main__":
     colorama.init()

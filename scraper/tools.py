@@ -21,33 +21,14 @@ def unmagic(contents):
         for lhs, rhs in zip(contents.split(","), YEOCHIN)
     )
 
-DATETIME_REGEX = [
-    ("%Y", compile("^\\d{4}$")),
-    ("%Y-%m", compile("^\\d{4}-[0-1]{1}\\d{1}$")),
-    ("%Y-%m-%d", compile("^\\d{4}-[0-1]{1}\\d{1}-[0-3]{1}\\d{1}$")),
-    ("%m/%d/%Y", compile("^[0-1]{1}\\d{1}/[0-3]{1}\\d{1}/\\d{4}$")),
-    ("%Y-%M-%d", compile("^\\d{4}-[a-zA-Z]{3}-[0-3]{1}\\d{1}$")),
-    ("%M, %Y", compile("^[a-zA-z]{3}, \\d{4}$")),
-    ("%M %d, %Y", compile("^[a-zA-z]{3} ([0-3]{1})?\\d{1}, \\d{4}$"))
-]
-
-def parse_datetime(timestamp):
-
-    for formatter, regex in DATETIME_REGEX:
-        if regex.search(timestamp):
-            return int(datetime.strptime(timestamp, formatter).timestamp())
-
-    return datetime.now()
-
 def generate_digest(filename):
 
     with open(filename, "rb") as stream:
-
         contents = stream.read()
 
-        return ScraperContext(
-            filename,
-            hex(crc32(contents))[2:],
-            md5(contents).hexdigest(),
-            sha1(contents).hexdigest()
-        )
+    return ScraperContext(
+        filename,
+        hex(crc32(contents))[2:],
+        md5(contents).hexdigest(),
+        sha1(contents).hexdigest()
+    )

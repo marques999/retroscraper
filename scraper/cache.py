@@ -11,10 +11,11 @@ class CacheProvider(object):
     ID = "cache"
     URL = PurePath(os.getcwd()) / "cache"
 
-    def __init__(self, platform):
+    def __init__(self, platform, directory=None):
 
         self.platform = platform
-        self.gdfpath = (self.URL / platform).with_suffix(".gdf")
+        self.directory = directory or self.URL
+        self.gdfpath = (self.directory / platform).with_suffix(".gdf")
         self.database = self.__read_gdf()
 
     def __read_gdf(self):
@@ -27,8 +28,8 @@ class CacheProvider(object):
 
     def write_gdf(self):
 
-        if not os.path.exists(self.URL):
-            os.makedirs(self.URL, exist_ok=True)
+        if not os.path.exists(self.directory):
+            os.makedirs(self.directory, exist_ok=True)
 
         with open(self.gdfpath, "wb") as stream:
             msgpack.pack(self.database, stream, encoding="utf-8")
@@ -42,6 +43,6 @@ class CacheProvider(object):
         resource = self.database.get(request.sha1)
 
         if resource:
-            return ScraperResponse(request.filename, resource, True, True)
+            return ScraperResponse.in_cache(request, resource)
 
-        return ScraperResponse(request.filename, self.ID)
+        return ScraperResponse.error(request, self.ID)

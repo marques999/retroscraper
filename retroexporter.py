@@ -75,6 +75,7 @@ if __name__ == "__main__":
     parser.add_argument("--no-wheels", action="store_true")
     parser.add_argument("--debug", action="store_true")
     arguments = parser.parse_args()
+    extensions = PLATFORMS[arguments.platform].get("extensions")
 
     if arguments.media_directory:
         media_directory = PurePath(arguments.media_directory)
@@ -96,8 +97,8 @@ if __name__ == "__main__":
         "roms_directory": roms_directory,
         "media_directory": media_directory,
         "output_directory": output_directory,
-        "medias": get_required_medias(vars(arguments)),
-        "roms": get_roms(roms_directory, ROM_EXTENSIONS[arguments.platform])
+        "roms": get_roms(roms_directory, extensions),
+        "medias": get_required_medias(vars(arguments))
     }
 
     gamedb = SkyscraperImporter(context).read(media_directory)

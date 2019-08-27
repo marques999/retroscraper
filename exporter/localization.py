@@ -1,16 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from operator import itemgetter
+
 from shared.gdf import GdfFields
-
-def merge_dictionaries(*collections):
-
-    result = {}
-
-    for collection in collections:
-        result.update(collection.copy())
-
-    return result
+from shared.tools import merge_dictionaries
 
 def localize_genres(items, language, region):
 

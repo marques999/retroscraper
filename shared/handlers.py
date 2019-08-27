@@ -8,5 +8,5 @@ def string(context, value):
 def integer(context, value):
     return int(value)
 
-def timestamp(format):
-    return lambda _, value: datetime.fromtimestamp(value).strftime("%Y-%m-%d")
+def timestamp(formatter):
+    return lambda _, value: datetime.fromtimestamp(value).strftime(formatter)
