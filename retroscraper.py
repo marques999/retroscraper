@@ -12,12 +12,14 @@ from shared.platforms import PLATFORMS
 from multiprocessing.pool import ThreadPool
 
 from scraper.cache import CacheProvider
+from scraper.pegasus import PegasusProvider
 from scraper.tools import generate_digest, unmagic
 from scraper.skyscraper import SkyscraperProvider
 from scraper.screenscraper import ScreenscraperProvider
 from scraper.thread import ScraperProgress, ScraperResponse
 
 SCRAPERS = {
+    PegasusProvider.ID: PegasusProvider,
     SkyscraperProvider.ID: SkyscraperProvider,
     ScreenscraperProvider.ID: ScreenscraperProvider
 }

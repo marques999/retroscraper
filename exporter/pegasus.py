@@ -2,31 +2,14 @@
 
 from re import sub
 from os import path
-from datetime import datetime
 from textwrap import TextWrapper, dedent
 
 from shared import handlers
 from shared.tools import export
 from shared.gdf import GdfFields
+from shared.pegasus import PegasusFields
 
 from exporter.tools import export_media
-
-class PegasusFields(object):
-
-    GAME = "game"
-    FILE = "file"
-    DEVELOPER = "developer"
-    PUBLISHER = "publisher"
-    GENRE = "genre"
-    DESCRIPTION = "description"
-    RELEASE = "release"
-    PLAYERS = "players"
-    RATING = "rating"
-    ASSETS_VIDEO = "assets.video"
-    ASSETS_WHEEL = "assets.wheel"
-    ASSETS_MARQUEE = "assets.marquee"
-    ASSETS_BOXFRONT = "assets.boxfront"
-    ASSETS_SCREENSHOT = "assets.screenshots"
 
 def export_players(context, value):
     return value[value.rfind("-") + 1:]
@@ -87,9 +70,9 @@ class PegasusExporter(object):
 
     def write(self, entries, path):
 
-        filename = path / "metadata.pegasus.txt"
+        metadata_filename = (self.path / "metadata.pegasus.txt")
 
-        with open(filename, mode="w", encoding="utf-8") as stream:
+        with open(metadata_filename, mode="w", encoding="utf-8") as stream:
             stream.write(self.__generate_metadata(entries))
 
     def __generate_metadata(self, entries):
@@ -103,18 +86,3 @@ class PegasusExporter(object):
             for (key, value) in export(self.PEGASUS_EXPORTER, self.context, entry[1])
             if value and len(value)
         )
-
-# metadata_filename = "D:\\Atari 7800 [US]\\metadata.pegasus.txt"
-
-# with open(metadata_filename, mode="r", encoding="utf-8") as stream:
-#     contents = stream.read().split("\n\n\n")
-#     entries = iter(contents[0].split("\n"))
-#     mapping = {}
-#     while entries:
-#         key, _, value = next(entries, "").partition(": ")
-#         if key == "description":
-#             print(list(takewhile(lambda x: x.startswith("  "), entries)))
-#         else:
-#             mapping[key] = value
-
-#     print(mapping)

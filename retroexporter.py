@@ -14,11 +14,12 @@ from exporter.tools import get_roms
 from exporter.organize import organize_roms
 from exporter.pegasus import PegasusExporter
 from exporter.emulationstation import EsExporter
-from exporter.skyscraper import SkyscraperImporter
+from exporter.skyscraper import SkyscraperImporter, SkyscraperExporter
 
 EXPORTERS = {
     "pegasus": PegasusExporter,
-    "emulationstation": EsExporter
+    "emulationstation": EsExporter,
+    "skyscraper": SkyscraperExporter
 }
 
 def filter_games(context, gamedb):
