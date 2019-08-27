@@ -1,341 +1,556 @@
 {
-  "id": 78626,
-  "hidden": false,
-  "title": {
-    "ss": "Devil's Crush",
-    "us": "Devil's Crush",
-    "jp": "Devil Crash : Naxat Pinball"
-  },
-  "region": "jp",
-  "parent": "0",
-  "platform": 31,
-  "publisher": {
-    "id": "4943",
-    "text": "NEC Technologies, Inc."
-  },
-  "developer": {
-    "id": "48",
-    "text": "Compile"
-  },
-  "players": "1-2",
-  "ages": "13",
-  "favorite": false,
-  "description": {
-    "en": "Imagine an adventure game in the format of pinball, and you get Dragon's Fury. Your hero is a small silver ball, and your battlefield is a three-tiered pinball machine. Using your ball, you can defeat monsters, rack up points, and enter bonus stages. If you play with enough skill, you can trigger all sorts of point-accumulating bonuses. If you get one billion points, you get to fight the final boss and view the ending to the game.",
-    "fr": "Devil Crash (Devil's Crush chez nous) est la suite officielle d'Alien Crush, et en reprend les bonnes id\u00e9es en les am\u00e9liorant.\r\nLe th\u00e8me des Aliens a \u00e9t\u00e9 abandonn\u00e9 au profit d'une ambiance medievalo-fantastique, avec sorciers, dragons et autres bestioles ind\u00e9finissables mais peu rago\u00fbtantes. De plus, cette fois-ci le flipper compte 3 tables au lieu de deux, et la transition est (enfin) r\u00e9alis\u00e9e \u00e0 l'aide d'une scrolling, ce qui am\u00e9liore grandement la visibilit\u00e9 et donc la jouabilit\u00e9. Enfin, Devil Crash reprend le syst\u00e8me des stages bonus, et l'am\u00e9liorant : ces stages sont plus nombreux (sept en comptant le combat final), et plus difficiles, ce qui les apparente \u00e0 des combats contre des boss."
-  },
-  "releasedate": {
-    "jp": "1990-07-20",
-    "us": "1990"
-  },
-  "genre": [
+  "id": "4729",
+  "romid": "475016",
+  "notgame": "false",
+  "noms": [
+    { "region": "ss", "text": "Waterworld" },
+    { "region": "wor", "text": "Waterworld" }
+  ],
+  "regions": { "shortname": "us" },
+  "cloneof": "0",
+  "systemeid": "11",
+  "systemenom": "Virtual Boy",
+  "editeur": { "id": "43", "text": "Ocean" },
+  "developpeur": { "id": "43", "text": "Ocean" },
+  "joueurs": { "text": "1" },
+  "note": { "text": "20" },
+  "topstaff": "1",
+  "rotation": "0",
+  "synopsis": [
     {
-      "id": "31",
+      "langue": "en",
+      "text": "THE DEACON AWAITS!\n\nThe Deacon will stop at nothing to control the world's most precious resource...\n\nAnd he's turned his blood-thirsty Smokers loose on the Atoller civilization in a frantic search for Enola - the tattooed girl who holds the secret to Dryland. Only you can smoke the Smokers and deck the Deacon!\n\nWaterworld brings your Virtual Boy screaming to life with incredibly smooth and realistic 3D animations, particle effects and texture mapped rendered graphics. So step into this action packed arcade experience today and learn what 3D gaming is all about."
+    },
+    {
+      "langue": "fr",
+      "text": "Waterworld est un jeu vid\u00e9o d'action sorti en 1995 sur Virtual Boy, bas\u00e9 sur le film Waterworld. Dans un avenir proche, l'axe polaire de la terre a chang\u00e9, et transform\u00e9 la Terre en un oc\u00e9an sans fin. Ceux qui ont surv\u00e9cu sont maintenant \u00e0 la recherche de la terre ferme."
+    },
+    {
+      "langue": "es",
+      "text": "El Di\u00e1cono no se detendr\u00e1 ante nada para controlar el recurso m\u00e1s preciado del mundo ...\r\n\r\nY ha liberado a sus Smokers sedientos de sangre en la civilizaci\u00f3n Atoller en una fren\u00e9tica b\u00fasqueda de Enola, la chica tatuada que guarda el secreto de Dryland. \u00a1Solo t\u00fa puedes derrotar a los Smokers y enga\u00f1ar al Di\u00e1cono!."
+    },
+    {
+      "langue": "pt",
+      "text": "Waterworld \u00e9 um jogo de a\u00e7\u00e3o lan\u00e7ado em 1995, baseado no filme Waterworld. No futuro pr\u00f3ximo, o eixo polar da terra mudou e transformou a Terra em um oceano infinito. Aqueles que sobreviveram est\u00e3o agora procurando o continente. No jogo voc\u00ea move o personagem em torno de um mundo tridimensional, disparando em inimigos chamados Smokers."
+    }
+  ],
+  "classifications": [
+    { "type": "SS", "text": "6" },
+    { "type": "ESRB", "text": "E" }
+  ],
+  "dates": [
+    { "region": "jp", "text": "1995-12-21" },
+    { "region": "us", "text": "1995" }
+  ],
+  "genres": [
+    {
+      "id": "79",
       "principale": "1",
       "parentid": "0",
       "noms": [
-        {
-          "langue": "de",
-          "text": "Flipper"
-        },
-        {
-          "langue": "en",
-          "text": "Pinball"
-        },
-        {
-          "langue": "es",
-          "text": "Pinball"
-        },
-        {
-          "langue": "fr",
-          "text": "Flipper"
-        },
-        {
-          "langue": "pt",
-          "text": "Pinball"
-        }
+        { "langue": "de", "text": "Shoot'em Up" },
+        { "langue": "en", "text": "Shoot'em Up" },
+        { "langue": "es", "text": "Shoot'em Up" },
+        { "langue": "fr", "text": "Shoot'em Up" },
+        { "langue": "pt", "text": "Shoot'em Up" }
       ]
     }
   ],
-  "media": [
+  "themes": [
+    {
+      "id": "12",
+      "principale": "1",
+      "parentid": "0",
+      "noms": [{ "langue": "fr", "text": "Cinéma" }]
+    }
+  ],
+  "medias": [
     {
       "type": "sstitle",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=sstitle(wor)",
       "region": "wor",
-      "sha1": "f933af445a5fa8969a13466b129f11f9f3fb6311",
+      "crc": "dbfb025a",
+      "md5": "f11caee5e5dd48b94e0aa68270fe540d",
+      "sha1": "2d4be224bf6433bf12d7c42639778dd5f7a4e828",
       "format": "png"
     },
     {
       "type": "ss",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=ss(wor)",
       "region": "wor",
-      "sha1": "fbdecd4d64b20de7649ae67b550e3453a4b166cd",
+      "crc": "c608eb5b",
+      "md5": "caeefb20e02e9590e8436b581c864970",
+      "sha1": "8811698b2205356b02191331eb8d9b99b3c7eb48",
       "format": "png"
     },
     {
       "type": "fanart",
-      "sha1": "5bd3d252838b9c7d1e85f47d26e0cc0780f10161",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=fanart",
+      "crc": "50ec952d",
+      "md5": "3a88563d4da49904c53a0f40cc44f9e5",
+      "sha1": "af8d09aea4160d2fa38928ca33f6ab282fcfe081",
       "format": "jpg"
     },
     {
       "type": "video",
-      "sha1": "f8673ca6fdac690014d9161f031d9b2db8963b7c",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaVideoJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=video",
+      "crc": "8051adf4",
+      "md5": "bae2dea54afa391b580a41ff6e9c8e52",
+      "sha1": "2fba4660c26e5022afa435e6ee955d6aa643afed",
       "format": "mp4"
     },
     {
       "type": "video-normalized",
-      "sha1": "00760913d1984339f09a5a81227e864777120db4",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaVideoJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=video-normalized",
+      "crc": "e73a1e34",
+      "md5": "e76c0492b6d2c83591d23ef6a6251230",
+      "sha1": "4d4eae096c2830c3939709dcef0a4502db5e9060",
       "format": "mp4"
     },
     {
       "type": "screenmarquee",
-      "region": "jp",
-      "sha1": "0628db399a79080ec94527918ec0c95c8e076a60",
-      "format": "png"
-    },
-    {
-      "type": "screenmarquee",
-      "region": "us",
-      "sha1": "9a0b07ee431d8db976abc9dd8e1205c9c1c12a0f",
-      "format": "png"
-    },
-    {
-      "type": "screenmarqueesmall",
-      "region": "jp",
-      "sha1": "5bb15d40262b805c370fc2462f576e1ef91f864e",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=screenmarquee(wor)",
+      "region": "wor",
+      "crc": "e6fe8282",
+      "md5": "fd455e7fa4cf55b4ff1570c1dee00736",
+      "sha1": "9c9eb551cbb4c682282a1244a15d1cd6deeb1d52",
       "format": "png"
     },
     {
       "type": "screenmarqueesmall",
-      "region": "us",
-      "sha1": "af621bf58a54669aa85c9479986ad673d74baf61",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=screenmarqueesmall(wor)",
+      "region": "wor",
+      "crc": "7261acc4",
+      "md5": "cada140c6281cc63c2996af8ea8b0fe1",
+      "sha1": "a45075fb3c0a20de4c2e682056f0ed18a6d7492f",
       "format": "png"
     },
     {
       "type": "manuel",
-      "region": "jp",
-      "sha1": "f54243107ff917132d974236234e45553f662ef3",
-      "format": "pdf"
-    },
-    {
-      "type": "manuel",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaManuelJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=manuel(us)",
       "region": "us",
-      "sha1": "71a04af8ca2cffa6ab08f7419f539235eccc978a",
+      "crc": "ce359757",
+      "md5": "be2daf62290b2160774c70dd5fc99644",
+      "sha1": "52f62da83d56c0a0ce907aa0d840b3f69daaeae3",
       "format": "pdf"
     },
     {
       "type": "steamgrid",
-      "sha1": "5fbae34f38604c1ab2e06dd2e6f91e68dc8648bc",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=steamgrid",
+      "crc": "2dd989a4",
+      "md5": "67f2b68ba265263c453aa9893c34ff9f",
+      "sha1": "9e9a847b411aa8ec51213cc56bff77bc7191ab32",
       "format": "jpg"
     },
     {
-      "type": "wheel",
-      "region": "jp",
-      "sha1": "a719c6e76401f8f5332ae39a555eb82f3ca3006f",
-      "format": "png"
-    },
-    {
-      "type": "wheel",
-      "region": "us",
-      "sha1": "f40dfc5293ba6d2c8d0e426f5c9c3cd9eb6843ce",
+      "type": "wheel-hd",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=wheel-hd(wor)",
+      "region": "wor",
+      "crc": "c574cf46",
+      "md5": "14eb250b01719e01fdd51caadc22ecf0",
+      "sha1": "fc055dfa4bf33714f9b1a69454ac23671f83b109",
       "format": "png"
     },
     {
       "type": "wheel-carbon",
-      "region": "jp",
-      "sha1": "b44e232fdaf7172e0224ed5692c30822519ce298",
-      "format": "png"
-    },
-    {
-      "type": "wheel-carbon",
-      "region": "us",
-      "sha1": "95c2d0f881ed27300f21fba9334dc571db3a2638",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=wheel-carbon(wor)",
+      "region": "wor",
+      "crc": "17046ff4",
+      "md5": "362ac61c1598bfad15c3d5c19717af91",
+      "sha1": "834020a1ac3b08dfa9e74fc791b171a7e16f752d",
       "format": "png"
     },
     {
       "type": "wheel-steel",
-      "region": "jp",
-      "sha1": "03795cefaca5f573d6b030a97b62d8fbee11f536",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=wheel-steel(wor)",
+      "region": "wor",
+      "crc": "9500f0d2",
+      "md5": "2448a35ce1ac5a65a635955d6a4ec735",
+      "sha1": "d5a8d012aa8d70fab9156c0642b8e92d16a37ea8",
       "format": "png"
     },
     {
-      "type": "wheel-steel",
+      "type": "box-2D",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=box-2D(us)",
       "region": "us",
-      "sha1": "eea124f8ce736ed6e0d091c81bb0af11f8e25de0",
-      "format": "png"
-    },
-    {
-      "type": "box-2D",
-      "region": "cus",
-      "sha1": "048dd378a227f579988d8ed5d3989a6281a6e45c",
-      "format": "png"
-    },
-    {
-      "type": "box-2D",
-      "region": "jp",
-      "sha1": "ffb76b5aca3efd58396fd49c793831f3ddfd6ed1",
-      "format": "png"
-    },
-    {
-      "type": "box-2D",
-      "region": "jp",
-      "sha1": "ffb76b5aca3efd58396fd49c793831f3ddfd6ed1",
-      "format": "png"
-    },
-    {
-      "type": "box-2D",
-      "region": "us",
-      "sha1": "c5fc1c3bdf2fbd15fe113ccdad134ddc3f1457b4",
+      "crc": "07dc3e3a",
+      "md5": "4741b57910d90f59398f90324a48e1f4",
+      "sha1": "227fddeae3302c1842c93dea4d39feb958c04422",
       "format": "png"
     },
     {
       "type": "box-2D-side",
-      "region": "cus",
-      "sha1": "cf3ecbe01c3e07745c3417b9a0a5c06b6f08396c",
-      "format": "png"
-    },
-    {
-      "type": "box-2D-side",
-      "region": "jp",
-      "sha1": "e748f2d7a363b476c8cd8390f4d2051b249c46e7",
-      "format": "png"
-    },
-    {
-      "type": "box-2D-side",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=box-2D-side(us)",
       "region": "us",
-      "sha1": "8e120da3f69485a83b20f471301617a234f768b5",
+      "crc": "6ec85ce6",
+      "md5": "a8be6d00e88d8f77e3c6880a4daf4611",
+      "sha1": "fa3d56d2b04aac833d009f5ce6cf522ba59ddd8c",
       "format": "png"
     },
     {
       "type": "box-2D-back",
-      "region": "cus",
-      "sha1": "433103fa6909b7e54a9d9806d2d18ab86b2a6ba1",
-      "format": "png"
-    },
-    {
-      "type": "box-2D-back",
-      "region": "jp",
-      "sha1": "c84afd71382ea92e7dfa798ff1eb159af9531368",
-      "format": "png"
-    },
-    {
-      "type": "box-2D-back",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=box-2D-back(us)",
       "region": "us",
-      "sha1": "373c7c96a655bc1861111cb7c5c1c364513b6f1b",
+      "crc": "f8131f53",
+      "md5": "6d27b21496c72ad2a429bf7d9db12ed1",
+      "sha1": "0bea36986c150f2cfc2351ddc82c6cf36cf1b793",
       "format": "png"
     },
     {
       "type": "box-texture",
-      "region": "cus",
-      "sha1": "5257d33e4755695fe443ac273bedba9bde722b67",
-      "format": "png"
-    },
-    {
-      "type": "box-texture",
-      "region": "jp",
-      "sha1": "5447138d98900629bd0e6ecc3dc99a1235453cea",
-      "format": "png"
-    },
-    {
-      "type": "box-texture",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=box-texture(us)",
       "region": "us",
-      "sha1": "218d867199b98a4b5a45a11a856386d415dea419",
+      "crc": "7c12e401",
+      "md5": "61a45c31a7e3e03da551adbda52b0de5",
+      "sha1": "045888d3a529040481faee0a35c1a5abd854ab41",
       "format": "png"
     },
     {
       "type": "box-3D",
-      "region": "cus",
-      "sha1": "b1193f7bab553b4bc7a626bdaafdb2808820b6ed",
-      "format": "png"
-    },
-    {
-      "type": "box-3D",
-      "region": "jp",
-      "sha1": "919189d284737355f48172c828dffa10f09189f3",
-      "format": "png"
-    },
-    {
-      "type": "box-3D",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=box-3D(us)",
       "region": "us",
-      "sha1": "3f39cb1ba3dd96f1416e75c757201a52d762ac4e",
+      "crc": "97f4cda1",
+      "md5": "0ebb18d4e937f50b6264991aa864f782",
+      "sha1": "d90ac56c23d06b3d589d46851c5ebc42757dc7f3",
       "format": "png"
     },
     {
       "type": "support-texture",
-      "region": "jp",
-      "sha1": "371a2fd99d403d8b1b9d4ae0a1b22cfcc9db80e6",
-      "format": "png"
-    },
-    {
-      "type": "support-texture",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=support-texture(us)",
       "region": "us",
-      "sha1": "eb89c31237edd9370293654cb94c13ce1ae39850",
+      "crc": "501b1e39",
+      "md5": "3ac6cbed948e0282ce1fab69a92a3ccf",
+      "sha1": "b292a6676600387692f923b0ad9f0f9ebfb27d2b",
       "format": "png"
     },
     {
       "type": "support-2D",
-      "region": "jp",
-      "sha1": "dbba836510d53dad74ab654d02bcd6023e304255",
-      "format": "png"
-    },
-    {
-      "type": "support-2D",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=support-2D(us)",
       "region": "us",
-      "sha1": "fcfffd7b64f5541f4830787467ecdf98738196bc",
+      "crc": "4e135d4f",
+      "md5": "f64db913a8a3e1957db06d0b27ce6e0d",
+      "sha1": "d7c035969fcd18f0b30c6184d4cd2ec21cc97ba7",
       "format": "png"
     },
     {
       "type": "mixrbv1",
-      "region": "jp",
-      "sha1": "14052ec590f33688e71b63fa48a0d841a9ac8600",
-      "format": "png"
-    },
-    {
-      "type": "mixrbv1",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=mixrbv1(us)",
       "region": "us",
-      "sha1": "0f16b716fc16ac172eecab53e3ae29c3dda2bf71",
+      "crc": "0f2d9f95",
+      "md5": "fda6aaff9d8cc477613fe7be36501c1f",
+      "sha1": "cddb4446db11ea0c04e77e59d2040a73edc8dca4",
       "format": "png"
     },
     {
       "type": "mixrbv1",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=mixrbv1(wor)",
       "region": "wor",
-      "sha1": "0f16b716fc16ac172eecab53e3ae29c3dda2bf71",
+      "crc": "0f2d9f95",
+      "md5": "fda6aaff9d8cc477613fe7be36501c1f",
+      "sha1": "cddb4446db11ea0c04e77e59d2040a73edc8dca4",
       "format": "png"
     },
     {
       "type": "mixrbv2",
-      "region": "jp",
-      "sha1": "db8e49c962c25bb2d30b5c39d208a7b1769c937a",
-      "format": "png"
-    },
-    {
-      "type": "mixrbv2",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=mixrbv2(us)",
       "region": "us",
-      "sha1": "ea52ca144336f0a0f2bfd37adbfdd42be1791b32",
+      "crc": "c1b9b8ab",
+      "md5": "e8ba9d746f0a57a8011bca25e2d6f31c",
+      "sha1": "25969f397b3ba9c8daa6ebf5d92efd96bdfa1fb0",
       "format": "png"
     },
     {
       "type": "mixrbv2",
+      "parent": "jeu",
+      "url": "https://www.screenscraper.fr/api2/mediaJeu.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&systemeid=11&jeuid=4729&media=mixrbv2(wor)",
       "region": "wor",
-      "sha1": "ea52ca144336f0a0f2bfd37adbfdd42be1791b32",
+      "crc": "c1b9b8ab",
+      "md5": "e8ba9d746f0a57a8011bca25e2d6f31c",
+      "sha1": "25969f397b3ba9c8daa6ebf5d92efd96bdfa1fb0",
+      "format": "png"
+    },
+    {
+      "type": "pictoliste",
+      "parent": "region",
+      "url": "https://www.screenscraper.fr/api2/mediaGroup.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=46&media=pictoliste",
+      "crc": "7fd56516",
+      "md5": "b00e4c7e24beec5dd3119a0a3663bb35",
+      "sha1": "e5ca4bf21d01af8bdf92de87cd924c69e335311d",
+      "format": "png"
+    },
+    {
+      "type": "pictomonochrome",
+      "parent": "editeur",
+      "url": "https://www.screenscraper.fr/api2/mediaCompagnie.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=43&media=logo-monochrome",
+      "crc": "ea0d25c2",
+      "md5": "6a1d5e9640947ca34b6e95c758c43c22",
+      "sha1": "644d425929b9ada39f8fea4960aa6c2d2f14ea50",
+      "format": "png"
+    },
+    {
+      "type": "pictocouleur",
+      "parent": "editeur",
+      "url": "https://www.screenscraper.fr/api2/mediaCompagnie.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=43&media=wheel",
+      "crc": "ceabe787",
+      "md5": "372d7ed77f17cab1fb8f2278e317d758",
+      "sha1": "c3e937944a3401ba28dc4ce5bc216ee493bbf90f",
+      "format": "png"
+    },
+    {
+      "type": "pictomonochrome",
+      "parent": "developpeur",
+      "url": "https://www.screenscraper.fr/api2/mediaCompagnie.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=43&media=logo-monochrome",
+      "crc": "ea0d25c2",
+      "md5": "6a1d5e9640947ca34b6e95c758c43c22",
+      "sha1": "644d425929b9ada39f8fea4960aa6c2d2f14ea50",
+      "format": "png"
+    },
+    {
+      "type": "pictocouleur",
+      "parent": "developpeur",
+      "url": "https://www.screenscraper.fr/api2/mediaCompagnie.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=43&media=wheel",
+      "crc": "ceabe787",
+      "md5": "372d7ed77f17cab1fb8f2278e317d758",
+      "sha1": "c3e937944a3401ba28dc4ce5bc216ee493bbf90f",
+      "format": "png"
+    },
+    {
+      "type": "pictoliste",
+      "parent": "joueurs",
+      "url": "https://www.screenscraper.fr/api2/mediaGroup.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=3309&media=pictoliste",
+      "crc": "78f736ef",
+      "md5": "1251549320ccb8c3e7e977b775df9eb4",
+      "sha1": "5a1adbf62ecb2271d239bbc8fbd17532996de31c",
+      "format": "png"
+    },
+    {
+      "type": "pictoliste",
+      "parent": "note",
+      "url": "https://www.screenscraper.fr/api2/mediaGroup.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=3559&media=pictoliste",
+      "crc": "bd172936",
+      "md5": "38f2793f8de4c0ff8f28332dd7f8c867",
+      "sha1": "fd95911bf6e8503c68c9c5c5537731c898ccaa54",
+      "format": "png"
+    },
+    {
+      "type": "pictoliste",
+      "parent": "classification",
+      "url": "https://www.screenscraper.fr/api2/mediaGroup.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=3796&media=pictoliste",
+      "crc": "73168804",
+      "md5": "5ff2f3339b04bf6e898b96d2bba23d5b",
+      "sha1": "524492838d519780518592560c7d26d96d2b7ceb",
+      "format": "png"
+    },
+    {
+      "type": "pictomonochrome",
+      "parent": "classification",
+      "url": "https://www.screenscraper.fr/api2/mediaGroup.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=3796&media=logo-monochrome",
+      "crc": "c51618a3",
+      "md5": "476209ddc567705a022f4b5518a9895a",
+      "sha1": "dbb3291ef992c500a02193e7d8aa38994fe86560",
+      "format": "png"
+    },
+    {
+      "type": "pictocouleur",
+      "parent": "classification",
+      "url": "https://www.screenscraper.fr/api2/mediaGroup.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=3796&media=wheel",
+      "crc": "d076a18b",
+      "md5": "c4fb570c824bca6ae83bd0e65f28e48e",
+      "sha1": "12e9e3296714f62091f4c7ebd09cf5d02841cd07",
+      "format": "png"
+    },
+    {
+      "type": "pictoliste",
+      "parent": "classification",
+      "subparent": "ESRB",
+      "url": "https://www.screenscraper.fr/api2/mediaGroup.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=3653&media=pictoliste",
+      "crc": "cafca3d7",
+      "md5": "51bfa81c19838bc679411a7b6f4053e2",
+      "sha1": "92253cf472ed8e71780c29ddeb6c6e260325ce1f",
+      "format": "png"
+    },
+    {
+      "type": "pictomonochrome",
+      "parent": "classification",
+      "subparent": "ESRB",
+      "url": "https://www.screenscraper.fr/api2/mediaGroup.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=3653&media=logo-monochrome",
+      "crc": "e4f09f59",
+      "md5": "031f5b008fd851f56fea852bf9f95126",
+      "sha1": "8160d583dde154dcbd717217182d2b310e756e92",
+      "format": "png"
+    },
+    {
+      "id": "79",
+      "parent": "genre",
+      "subparent": "Shoot'em Up",
+      "type": "pictoliste",
+      "url": "https://www.screenscraper.fr/api2/mediaGroup.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=79&media=pictoliste",
+      "crc": "9746a0d4",
+      "md5": "818adff397e9fa2d57dda2bcf78264f3",
+      "sha1": "c0a1b5b73edc5bed64549be9ea87b8d63cd5dbd4",
+      "format": "png"
+    },
+    {
+      "id": "79",
+      "parent": "genre",
+      "subparent": "Shoot'em Up",
+      "type": "pictomonochrome",
+      "url": "https://www.screenscraper.fr/api2/mediaGroup.php?devid=&devpassword=&softname=retroscraper&ssid=marques999&sspassword=14191091aB&groupid=79&media=logo-monochrome",
+      "crc": "dd5fe4a2",
+      "md5": "c68fd2d841216a7731ab359f27c83253",
+      "sha1": "a72048fdf61cf38f02c67cdef772745050354773",
       "format": "png"
     }
   ],
+  "roms": [
+    {
+      "id": "36386",
+      "romsize": "754888",
+      "romfilename": "Waterworld (USA).zip",
+      "romnumsupport": "1",
+      "romtotalsupport": "1",
+      "romcloneof": "0",
+      "romcrc": "09BDAFBF",
+      "rommd5": "6EA1694869BDECFE570B506F69464D23",
+      "romsha1": "D9AA129A716D0B09E97882F3FE8D901922FA8B6E",
+      "beta": "0",
+      "demo": "0",
+      "proto": "0",
+      "trad": "0",
+      "hack": "0",
+      "unl": "0",
+      "alt": "0",
+      "best": "0",
+      "netplay": "0"
+    },
+    {
+      "id": "117517",
+      "romsize": "754866",
+      "romfilename": "Waterworld (USA).zip",
+      "romnumsupport": "1",
+      "romtotalsupport": "1",
+      "romcloneof": "0",
+      "romcrc": "20B17E51",
+      "rommd5": "1E57662F76A36A75C513B755E1BE8BD9",
+      "romsha1": "",
+      "beta": "0",
+      "demo": "0",
+      "proto": "0",
+      "trad": "0",
+      "hack": "0",
+      "unl": "0",
+      "alt": "0",
+      "best": "0",
+      "netplay": "0"
+    },
+    {
+      "id": "168432",
+      "romsize": "2097152",
+      "romfilename": "Waterworld (USA).vb",
+      "romnumsupport": "1",
+      "romtotalsupport": "1",
+      "romcloneof": "0",
+      "romcrc": "82A95E51",
+      "rommd5": "110A83BC070559C5CC5634A8B5CAE274",
+      "romsha1": "DCC46484BD0ACAB0AC1EA178F425A0F5CCFB8DC2",
+      "beta": "0",
+      "demo": "0",
+      "proto": "0",
+      "trad": "0",
+      "hack": "0",
+      "unl": "0",
+      "alt": "0",
+      "best": "0",
+      "netplay": "0"
+    },
+    {
+      "id": "570530",
+      "romsize": "2097152",
+      "romfilename": "Waterworld (U) [b1].vb",
+      "romnumsupport": "1",
+      "romtotalsupport": "1",
+      "romcloneof": "0",
+      "romcrc": "742298D1",
+      "rommd5": "9303817961E4333D6AE1C116AD7546D5",
+      "romsha1": "F94AEB9C62E5951C37C5720E4CCCA063317FD059",
+      "beta": "0",
+      "demo": "0",
+      "proto": "0",
+      "trad": "0",
+      "hack": "0",
+      "unl": "0",
+      "alt": "0",
+      "best": "0",
+      "netplay": "0"
+    },
+    {
+      "id": "475016",
+      "romsize": "719248",
+      "romfilename": "Waterworld (USA).zip",
+      "romnumsupport": "1",
+      "romtotalsupport": "1",
+      "romcloneof": "0",
+      "romcrc": "25E184AB",
+      "rommd5": "3DC9FE932A902C42D7F3C24C414EA996",
+      "romsha1": "7BD2C4FFEF8A328ADA5F6AD371A7E55A29B416F1",
+      "beta": "0",
+      "demo": "0",
+      "proto": "0",
+      "trad": "0",
+      "hack": "0",
+      "unl": "0",
+      "alt": "0",
+      "best": "0",
+      "netplay": "0"
+    }
+  ],
   "rom": {
-    "id": 172054,
-    "filename": "Devil Crash - Naxat Pinball (Japan).pce",
-    "region": "jp",
-    "size": "393216",
-    "crc32": "4EC81A80",
-    "sha1": "808638C33E110285D0D9415BC046B94A84B02C6A",
-    "parent": 0,
-    "beta": false,
-    "demo": false,
-    "prototype": false,
-    "translation": false,
-    "hack": false,
-    "unlicensed": false,
-    "alternate": false,
-    "best": false,
-    "netplay": false
-  },
-  "checksum": "f677b6d9475fca8a07b66068ead12c2"
+    "id": "168432",
+    "romnumsupport": "1",
+    "romtotalsupport": "1",
+    "romfilename": "Waterworld (USA).vb",
+    "romregions": "us,",
+    "romtype": "rom",
+    "romsupporttype": "cartouche",
+    "romsize": "2097152",
+    "romcrc": "82A95E51",
+    "rommd5": "110A83BC070559C5CC5634A8B5CAE274",
+    "romsha1": "DCC46484BD0ACAB0AC1EA178F425A0F5CCFB8DC2",
+    "romcloneof": "0",
+    "beta": "0",
+    "demo": "0",
+    "proto": "0",
+    "trad": "0",
+    "hack": "0",
+    "unl": "0",
+    "alt": "0",
+    "best": "0",
+    "netplay": "0",
+    "editeur": "Ocean",
+    "dates": {
+      "date_us": "1995"
+    }
+  }
 }

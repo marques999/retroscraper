@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
+
 from pathlib import Path
 from itertools import groupby
 from operator import itemgetter
 
-from tools import get_roms
-from skyscraper import SkyscraperMetadata
+from exporter.tools import get_roms
+from exporter.skyscraper import SkyscraperImporter
 
 def filter_entry(entry):
 
@@ -18,7 +20,7 @@ def filter_entry(entry):
 
 def duplicates_recursive(context):
 
-    gamedb = SkyscraperMetadata().read(context["media_directory"])
+    gamedb = SkyscraperImporter(context).read(context["media_directory"])
     roms = get_roms(context["roms_directory"], context["extensions"])
 
     entries = sorted((
@@ -35,7 +37,7 @@ def duplicates_region(context):
 
     roms_directory = context["roms_directory"]
     roms = get_roms(roms_directory, context["extensions"])
-    gamedb = SkyscraperMetadata().read(context["media_directory"])
+    gamedb = SkyscraperImporter(context).read(context["media_directory"])
 
     entries = sorted(
         ((game["title"].upper(), str(Path(roms[checksum]).relative_to(roms_directory)))

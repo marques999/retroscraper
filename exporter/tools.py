@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import os
 import re
 import gzip
@@ -5,9 +7,9 @@ import gzip
 from hashlib import sha1
 from xml.dom import minidom
 from zipfile import ZipFile
+from pathlib import PurePath
 from datetime import datetime
 from xml.etree import ElementTree
-from platforms import ROM_EXTENSIONS
 
 DATETIME_REGEX = [
     (re.compile("^\\d{4}$"), "%Y"),
@@ -55,7 +57,7 @@ def parse_datetime(timestamp):
 
     return datetime.now()
 
-def execute_exporter(exporter, context, entry):
+def export(exporter, context, entry):
 
      return (
          (destination, exporter(context, entry[source]))
@@ -69,7 +71,7 @@ def get_files(directory, extensions):
         os.path.join(root, filename)
         for root, _, filenames in os.walk(directory)
         for filename in filenames
-        if os.path.splitext(filename)[-1].lower() in extensions
+        if not extensions or os.path.splitext(filename)[-1].lower() in extensions
     )
 
 def get_roms(roms_directory, extensions):
@@ -96,3 +98,10 @@ def get_roms(roms_directory, extensions):
         roms[digest_file(filename)] = filename
 
     return roms
+
+def export_media(context, media, resource):
+
+    return (
+        context["media_directory"] / resource,
+        context["output_directory"] / media / os.path.basename(resource)
+    )

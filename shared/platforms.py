@@ -1,6 +1,10 @@
+# -*- coding: utf-8 -*-
+
 PLATFORMS = {
     "3do": {
-        "id": {
+        "name": "3DO",
+        "manufacturer": "Panasonic",
+        "scrapers": {
             "mobygames": 35,
             "screenscraper": 29
         },
@@ -9,7 +13,9 @@ PLATFORMS = {
         }
     },
     "amiga": {
-        "id": {
+        "name": "Commodore Amiga",
+        "manufacturer": "Commodore",
+        "scrapers": {
             "mobygames": 19,
             "screenscraper": 64
         },
@@ -18,7 +24,9 @@ PLATFORMS = {
         }
     },
     "amstradcpc": {
-        "id": {
+        "name": "Amstrad CPC",
+        "manufacturer": "Amstrad",
+        "scrapers": {
             "mobygames": 60,
             "screenscraper": 65
         },
@@ -27,7 +35,9 @@ PLATFORMS = {
         }
     },
     "apple2": {
-        "id": {
+        "name": "Apple II",
+        "manufacturer": "Apple",
+        "scrapers": {
             "mobygames": 31,
             "screenscraper": 86
         },
@@ -36,7 +46,9 @@ PLATFORMS = {
         }
     },
     "apple2gs": {
-        "id": {
+        "name": "Apple IIGS",
+        "manufacturer": "Apple",
+        "scrapers": {
             "screenscraper": 217
         },
         "extensions": {
@@ -44,7 +56,9 @@ PLATFORMS = {
         }
     },
     "atari2600": {
-        "id": {
+        "name": "Atari 2600",
+        "manufacturer": "Atari",
+        "scrapers": {
             "mobygames": 28,
             "screenscraper": 26
         },
@@ -53,7 +67,9 @@ PLATFORMS = {
         }
     },
     "atari5200": {
-        "id": {
+        "name": " Atari 5200",
+        "manufacturer": "Atari",
+        "scrapers": {
             "mobygames": 33,
             "screenscraper": 40
         },
@@ -62,7 +78,9 @@ PLATFORMS = {
         }
     },
     "atari7800": {
-        "id": {
+        "name": "Atari 7800",
+        "manufacturer": "Atari",
+        "scrapers": {
             "mobygames": 34,
             "screenscraper": 41
         },
@@ -71,7 +89,9 @@ PLATFORMS = {
         }
     },
     "atari800": {
-        "id": {
+        "name": "Atari 400/800",
+        "manufacturer": "Atari",
+        "scrapers": {
             "mobygames": 39,
             "screenscraper": 43
         },
@@ -80,7 +100,9 @@ PLATFORMS = {
         }
     },
     "atarijaguar": {
-        "id": {
+        "name": "Atari Jaguar",
+        "manufacturer": "Atari",
+        "scrapers": {
             "mobygames": 17,
             "screenscraper": 27
         },
@@ -89,7 +111,9 @@ PLATFORMS = {
         }
     },
     "atarilynx": {
-        "id": {
+        "name": "Atari Lynx",
+        "manufacturer": "Atari",
+        "scrapers": {
             "mobygames": 18,
             "screenscraper": 28
         },
@@ -98,7 +122,9 @@ PLATFORMS = {
         }
     },
     "atarist": {
-        "id": {
+        "name": "Atari ST",
+        "manufacturer": "Atari",
+        "scrapers": {
             "mobygames": 24,
             "screenscraper": 42
         },
@@ -107,7 +133,9 @@ PLATFORMS = {
         }
     },
     "c64": {
-        "id": {
+        "name": "Commodore 64",
+        "maufacturer": "Commodore",
+        "scrapers": {
             "mobygames": 27,
             "screenscraper": 66
         },
@@ -116,7 +144,9 @@ PLATFORMS = {
         }
     },
     "coco": {
-        "id": {
+        "name": "Color Computer",
+        "manufacturer": "Tandy",
+        "scrapers": {
             "mobygames": 62,
             "screenscraper": 144
         },
@@ -125,7 +155,9 @@ PLATFORMS = {
         }
     },
     "coleco": {
-        "id": {
+        "name": "ColecoVision",
+        "manufacturer": "Coleco",
+        "scrapers": {
             "mobygames": 29,
             "screenscraper": 75
         },
@@ -134,102 +166,132 @@ PLATFORMS = {
         }
     },
     "dragon32": {
-        "id": {
+        "name": "Dragon 32/64",
+        "manufacturer": "Dragon",
+        "scrapers": {
             "mobygames": 79,
             "screenscraper": 91
         },
         "extensions": {".asc", ".bas", ".cas", ".ccc", ".dmk", ".dsk", ".jvc", ".os9", ".rom", ".sna", ".vdk", ".wav"}
     },
     "dreamcast": {
-        "id": {
+        "name": "Sega Dreamcast",
+        "manufacturer": "Sega",
+        "scrapers": {
             "mobygames": 8,
             "screenscraper": 23
         },
         "extensions": {".cdi", ".chd", ".gdi"}
     },
     "fba": {
-        "id": {
+        "name": "Final Burn Alpha",
+        "manufacturer": "Arcade",
+        "scrapers": {
             "screenscraper": 75
         },
         "extensions": {".7z", ".zip"}
     },
     "fds": {
-        "id": {
+        "name": "Famicom Disk System",
+        "manufacturer": "Nintendo",
+        "scrapers": {
             "mobygames": 22,
             "screenscraper": 106
         },
         "extensions": {".fds", ".nes", ".qd"}
     },
     "gameandwatch": {
-        "id": {
+        "name": "Game & Watch",
+        "manufacturer": "Nintendo",
+        "scrapers": {
             "screenscraper": 52
         },
         "extensions": {".mgw"}
     },
     "gamegear": {
-        "id": {
+        "name": "Sega Game Gear",
+        "manufacturer": "Sega",
+        "scrapers": {
             "mobygames": 25,
             "screenscraper": 21
         },
         "extensions": {".bin", ".gg", ".sms"}
     },
     "gb": {
-        "id": {
+        "name": "Game Boy",
+        "manufacturer": "Nintendo",
+        "scrapers": {
             "mobygames": 10,
             "screenscraper": 9
         },
         "extensions": {".gb"}
     },
     "gba": {
-        "id": {
+        "name": "Game Boy Advance",
+        "manufacturer": "Nintendo",
+        "scrapers": {
             "mobygames": 12,
             "screenscraper": 12
         },
         "extensions": {".gba"}
     },
     "gbc": {
-        "id": {
+        "name": "Game Boy Color",
+        "manufacturer": "Nintendo",
+        "scrapers": {
             "mobygames": 11,
             "screenscraper": 10
         },
         "extensions": {".gbc"}
     },
     "gc": {
-        "id": {
+        "name": "Nintendo GameCube",
+        "manufacturer": "Nintendo",
+        "scrapers": {
             "mobygames": 14,
             "screenscraper": 13
         },
         "extrensions": {".gcm", ".gcz", ".iso"}
     },
     "genesis": {
-        "id": {
+        "name": "Sega Genesis",
+        "manufacturer": "Sega",
+        "scrapers": {
             "mobygames": 16,
             "screenscraper": 1
         },
         "extensions": {".bin", ".gen", ".md", ".smd"}
     },
     "intellivision": {
-        "id": {
+        "name": "Intellivision",
+        "manufacturer": "Mattel",
+        "scrapers": {
             "mobygames": 30,
             "screenscraper": 115
         },
         "extensions": {".bin", ".int", ".rom"}
     },
     "mame": {
-        "id": {
+        "name": "Multiple Arcade Machine Emulator",
+        "manufacturer": "Arcade",
+        "scrapers": {
             "screenscraper": 75
         },
         "extensions": {".7z", ".zip"}
     },
     "mastersystem": {
-        "id": {
+        "name": "Sega Master System",
+        "manufacturer": "Sega",
+        "scrapers": {
             "mobygames": 26,
             "screenscraper": 2
         },
         "extensions": {".bin", ".sms"}
     },
     "megacd": {
-        "id": {
+        "name": "Sega Mega CD",
+        "manufacturer": "Sega",
+        "scrapers": {
             "mobygames": 20,
             "screenscraper": 20
         },
@@ -238,7 +300,9 @@ PLATFORMS = {
         }
     },
     "megadrive": {
-        "id": {
+        "name": "Sega Mega Drive",
+        "manufacturer": "Sega",
+        "scrapers": {
             "mobygames": 16,
             "screenscraper": 1
         },
@@ -247,7 +311,9 @@ PLATFORMS = {
         }
     },
     "mo5": {
-        "id": {
+        "name": "Thomson MO/TO",
+        "description": "Thomson",
+        "scrapers": {
             "screenscraper": 141
         },
         "extensions": {
@@ -255,7 +321,9 @@ PLATFORMS = {
         }
     },
     "msx": {
-        "id": {
+        "name": "MSX",
+        "manufacturer": "ASCII/Microsoft",
+        "scrapers": {
             "mobygames": 57,
             "screenscraper": 113
         },
@@ -264,7 +332,9 @@ PLATFORMS = {
         }
     },
     "n64": {
-        "id": {
+        "name": "Nintendo 64",
+        "manufacturer": "Nintendo",
+        "scrapers": {
             "mobygames": 9,
             "screenscraper": 14
         },
@@ -273,7 +343,9 @@ PLATFORMS = {
         }
     },
     "nds": {
-        "id": {
+        "name": "Nintendo DS",
+        "manufacturer": "Nintendo",
+        "scrapers": {
             "mobygames": 44,
             "screenscraper": 15
         },
@@ -282,7 +354,9 @@ PLATFORMS = {
         }
     },
     "neogeo": {
-        "id": {
+        "name": "Neo Geo",
+        "manufacturer": "SNK",
+        "scrapers": {
             "mobygames": 36,
             "screenscraper": 142
         },
@@ -291,35 +365,45 @@ PLATFORMS = {
         }
     },
     "nes": {
-        "id": {
+        "name": "Nintendo Entertainment System",
+        "manufacturer": "Nintendo",
+        "scrapers": {
             "mobygames": 22,
             "screenscraper": 3
         },
         "extensions": {".fds", ".nes"}
     },
     "ngp": {
-        "id": {
+        "name": "Neo Geo Pocket",
+        "manufacturer": "SNK",
+        "scrapers": {
             "mobygames": 52,
             "screenscraper": 25
         },
         "extensions": {".ngp"}
     },
     "ngc": {
-        "id": {
+        "name": "Neo Geo Pocket Color",
+        "manufacturer": "SNK",
+        "scrapers": {
             "mobygames": 53,
             "screenscraper": 82
         },
         "extensions": {".ngc"}
     },
     "oric": {
-        "id": {
+        "name": "Oric-1",
+        "manufacturer": "Tangerine Computer Systems",
+        "scrapers": {
             "mobygames": 111,
             "screenscraper": 131
         },
         "extensions": {".dsk", ".tap"}
     },
     "pc": {
-        "id": {
+        "name": "PC/AT",
+        "manufacturer": "IBM",
+        "scrapers": {
             "screenscraper": 135
         },
         "extensions": {
@@ -327,7 +411,9 @@ PLATFORMS = {
         }
     },
     "pc88": {
-        "id": {
+        "name": "PC-8801/PC-88VA",
+        "manufacturer": "NEC",
+        "scrapers": {
             "mobygames": 94
         },
         "extensions": {
@@ -335,7 +421,9 @@ PLATFORMS = {
         }
     },
     "pc98": {
-        "id": {
+        "name": "PC-9801/PC-9821",
+        "manufacturer": "NEC",
+        "scrapers": {
             "screenscraper": 0
         },
         "extensions": {
@@ -343,7 +431,9 @@ PLATFORMS = {
         }
     },
     "pcengine": {
-        "id": {
+        "name": "PC Engine",
+        "manufacturer": "NEC",
+        "scrapers": {
             "screenscraper": 31
         },
         "extensions": {
@@ -351,7 +441,9 @@ PLATFORMS = {
         }
     },
     "pcfx": {
-        "id": {
+        "name": "PC-FX",
+        "manufacturer": "NEC",
+        "scrapers": {
             "mobygames": 59,
             "screenscraper": 72
         },
@@ -360,7 +452,9 @@ PLATFORMS = {
         }
     },
     "ps2": {
-        "id": {
+        "name": "PlayStation 2",
+        "manufacturer": "Sony",
+        "scrapers": {
             "mobygames": 7,
             "screenscraper": 58
         },
@@ -369,7 +463,9 @@ PLATFORMS = {
         }
     },
     "psp": {
-        "id": {
+        "name": "PlayStation Portable",
+        "manufacturer": "Sony",
+        "scrapers": {
             "mobygames": 46,
             "screenscraper": 61
         },
@@ -378,7 +474,9 @@ PLATFORMS = {
         }
     },
     "saturn": {
-        "id": {
+        "name": "Sega Saturn",
+        "manufacturer": "Sega",
+        "scrapers": {
             "mobygames": 23,
             "screenscraper": 22,
         },
@@ -387,7 +485,9 @@ PLATFORMS = {
         }
     },
     "sega32x": {
-        "id": {
+        "name": "Sega 32X",
+        "manufacturer": "Sega",
+        "scrapers": {
             "mobygames": 21,
             "screenscraper": 19
         },
@@ -396,7 +496,9 @@ PLATFORMS = {
         }
     },
     "segacd": {
-        "id": {
+        "name": "Sega-CD",
+        "manufacturer": "Sega",
+        "scrapers": {
             "mobygames": 20,
             "screenscraper": 20
         },
@@ -405,7 +507,9 @@ PLATFORMS = {
         }
     },
     "sg-1000": {
-        "id": {
+        "name": "Sega SG-1000",
+        "manufacturer": "Sega",
+        "scrapers": {
             "mobygames": 114,
             "screenscraper": 109
         },
@@ -414,7 +518,9 @@ PLATFORMS = {
         }
     },
     "snes": {
-        "id": {
+        "name": "Super Nintendo Entertainment System",
+        "manufacturer": "Nintendo",
+        "scrapers": {
             "mobygames": 15,
             "screenscraper": 4
         },
@@ -423,7 +529,9 @@ PLATFORMS = {
         }
     },
     "ti99": {
-        "id": {
+        "name": "TI-99/4A",
+        "manufacturer": "Texas Instruments",
+        "scrapers": {
             "mobygames": 47,
             "screenscraper": 205
         },
@@ -432,7 +540,9 @@ PLATFORMS = {
         }
     },
     "trs-80": {
-        "id": {
+        "name": "Tandy TRS-80",
+        "manufacturer": "Tandy",
+        "scrapers": {
             "mobygames": 58,
             "screenscraper": 144
         },
@@ -441,7 +551,9 @@ PLATFORMS = {
         }
     },
     "vectrex": {
-        "id": {
+        "name": "Vectrex",
+        "manufacturer": "GCE",
+        "scrapers": {
             "mobygames": 37,
             "screenscraper": 102
         },
@@ -450,7 +562,9 @@ PLATFORMS = {
         }
     },
     "videopac": {
-        "id": {
+        "name": "Videopac G7000",
+        "manufacturer": "Philips",
+        "scrapers": {
             "screenscraper": 104,
             "mobygames": 128
         },
@@ -459,7 +573,9 @@ PLATFORMS = {
         }
     },
     "virtualboy": {
-        "id": {
+        "name": "Virtual Boy",
+        "manufacturer": "Nintendo",
+        "scrapers": {
             "mobygames": 38,
             "screenscraper": 11
         },
@@ -468,7 +584,9 @@ PLATFORMS = {
         }
     },
     "x1": {
-        "id": {
+        "name": "Sharp X1",
+        "manufacturer": "Sharp",
+        "scrapers": {
             "mobygames": 121
         },
         "extensions": {
@@ -476,7 +594,9 @@ PLATFORMS = {
         }
     },
     "x68000": {
-        "id": {
+        "name": "Sharp X68000",
+        "manufacturer": "Sharp",
+        "scrapers": {
             "mobygames": 106,
             "screenscraper": 79
         },
@@ -485,7 +605,9 @@ PLATFORMS = {
         }
     },
     "wonderswan": {
-        "id": {
+        "name": "WonderSwan",
+        "manufacturer": "Bandai",
+        "scrapers": {
             "mobygames": 48,
             "screenscraper": 45
         },
@@ -494,7 +616,9 @@ PLATFORMS = {
         }
     },
     "wonderswancolor": {
-        "id": {
+        "name": "WonderSwan Color",
+        "manufacturer": "Bandai",
+        "scrapers": {
             "mobygames": 49,
             "screenscraper": 46
         },
@@ -503,7 +627,9 @@ PLATFORMS = {
         }
     },
     "zx81": {
-        "id": {
+        "name": "ZX81",
+        "manufacturer": "Sinclair",
+        "scrapers": {
             "mobygames": 119,
             "screenscraper": 77
         },
@@ -512,7 +638,9 @@ PLATFORMS = {
         }
     },
     "zxspectrum": {
-        "id": {
+        "name": "ZX Spectrum",
+        "manufacturer": "Sinclair",
+        "scrapers": {
             "screenscraper": 76
         },
         "extensions": {

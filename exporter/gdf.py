@@ -1,14 +1,21 @@
+# -*- coding: utf-8 -*-
+
 class GdfFields:
+    PATH = "path"
     TITLE = "title"
     DEVELOPER = "developer"
     PUBLISHER = "publisher"
-    GENRE = "genre"
+    TAGS = "tags"
     AGES = "ages"
     DESCRIPTION = "description"
-    RELEASE = "releasedate"
+    RELEASEDATE = "releasedate"
     PLAYERS = "players"
     RATING = "rating"
-    CHECKSUM = "checksum"
+    COVER = "cover"
+    SCREENSHOT = "screenshot"
+    WHEEL = "wheel"
+    MARQUEE = "marquee"
+    VIDEO = "video"
 
 class EsFields:
     NAME = "name",

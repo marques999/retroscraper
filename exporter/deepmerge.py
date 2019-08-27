@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+
+def merge(source, destination):
+
+    return merge_recursive([], source, destination)
+
 def merge_dictionary(path, source, destination):
 
     for key, value in destination.items():
@@ -11,8 +17,7 @@ def merge_dictionary(path, source, destination):
 
 def merge_recursive(path, source, destination):
 
-    if not (isinstance(source, type(destination))
-            or isinstance(destination, type(source))):
+    if not (isinstance(source, type(destination)) or isinstance(destination, type(source))):
         return destination
     elif isinstance(destination, dict):
         return merge_dictionary(path, source, destination)
@@ -20,7 +25,3 @@ def merge_recursive(path, source, destination):
         return source + destination
     else:
         return destination
-
-def merge(source, destination):
-
-    return merge_recursive([], source, destination)

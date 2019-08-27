@@ -1,15 +1,17 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import os
 import sys
 import json
 
 from pathlib import Path
 from argparse import ArgumentParser
+from shared.platforms import PLATFORMS
 
-from platforms import ROM_EXTENSIONS
-from metadata import GamelistContext
-from yennie import check_assets, check_yennie
-from organize import organize_directories, organize_rename
-from duplicates import duplicates_recursive, duplicates_region
+from exporter.yennie import check_assets, check_yennie
+from exporter.organize import organize_directories, organize_rename
+from exporter.duplicates import duplicates_recursive, duplicates_region
 
 def print_result(duplicates):
 
@@ -25,8 +27,8 @@ def get_context(platform):
 
     return {
         "platform": platform,
-        "extensions": ROM_EXTENSIONS[platform],
         "medias": {"covers", "screenshots", "wheels"},
+        "extensions": PLATFORMS[platform].get("extensions"),
         "output_directory": Path("G:\\RetroPie") / platform,
         "roms_directory": Path.home() / "RetroPie" / "roms" / platform,
         "media_directory": Path.home() / ".skyscraper" / "cache" / platform
@@ -89,7 +91,7 @@ if __name__ == "__main__":
 
     parser = ArgumentParser()
     parser.add_argument("command", choices=handlers.keys())
-    parser.add_argument("platform")
+    parser.add_argument("platform", choices=PLATFORMS.keys())
     parser.add_argument("--debug", action="store_true")
     arguments = parser.parse_args()
     handlers[arguments.command](arguments.platform, arguments.debug)

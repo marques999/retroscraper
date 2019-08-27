@@ -1,32 +1,32 @@
+# -*- coding: utf-8 -*-
+
 from os import path
 from functools import reduce
 from itertools import groupby
 from operator import itemgetter
 
-from deepmerge import merge
-from tools import digest_file, get_files, get_roms
+from exporter.deepmerge import merge
+from exporter.tools import digest_file, get_files, get_roms
 
 def remove_extension(filename):
-
     return path.basename(path.splitext(filename)[0])
 
 def get_checksums(directory):
-
     return set(map(remove_extension, get_files(directory, [".png"])))
 
-def get_duplicates(media_directory, roms_lookup):
-
-    duplicates = {}
+def get_duplicates(media_directory, roms):
 
     filenames = sorted((
         (filename, digest_file(filename))
         for filename in get_files(media_directory, [".png"])), key=itemgetter(1)
     )
 
+    duplicates = {}
+
     for group, grouper in groupby(filenames, key=itemgetter(1)):
 
         checksums = map(remove_extension, map(itemgetter(0), grouper))
-        roms = list(map(roms_lookup.get, filter(roms_lookup.get, checksums)))
+        roms = list(map(roms.get, filter(roms.get, checksums)))
 
         if len(roms) > 1:
             duplicates[group] = roms

@@ -1,9 +1,12 @@
+# -*- coding: utf-8 -*-
+
 from os import path
 from pathlib import PurePath
 
-from tools import get_roms
-from inflection import singularize
-from skyscraper import SkyscraperMetadata
+from exporter.gdf import GdfFields
+from exporter.skyscraper import SkyscraperImporter
+from exporter.tools import get_roms, export_media
+from exporter.inflection import singularize, pluralize
 
 def get_suffix(title):
 
@@ -15,11 +18,11 @@ def get_suffix(title):
 def organize_directories(context):
 
     filenames = []
-    gamedb = SkyscraperMetadata().read(context["media_directory"])
+    gamedb = SkyscraperImporter().read(context["media_directory"])
     roms = get_roms(context["roms_directory"], context["extensions"])
 
     entries = (
-        (game["title"].upper(), roms[checksum])
+        (game[GdfFields.TITLE].upper(), roms[checksum])
         for (checksum, game) in gamedb.items()
         if checksum in roms
     )
@@ -57,7 +60,7 @@ def rename_rom(context, filename, checksum):
 def organize_rename(context):
 
     roms = get_roms(context["roms_directory"], context["extensions"])
-    gamedb = SkyscraperMetadata().read(context["media_directory"])
+    gamedb = SkyscraperImporter().read(context["media_directory"])
 
     return (
         (filename, rename_rom(context, filename, checksum))
@@ -82,14 +85,10 @@ def organize_roms(context, gamedb):
 
         for media in context["medias"]:
 
-            media_directory = game.get(singularize(media))
+            subdirectory = game.get(singularize(media))
 
-            if media_directory:
-
-                paths[media] = (
-                    context["media_directory"] / media_directory,
-                    context["output_directory"] / media / path.basename(media_directory)
-                )
+            if subdirectory:
+                paths[media] = export_media(context, media, subdirectory)
 
         filenames.append(paths)
 

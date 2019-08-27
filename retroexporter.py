@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import os
 import colorama
 
@@ -5,26 +8,17 @@ from operator import itemgetter
 from pathlib import Path, PurePath
 from argparse import ArgumentParser
 
-from tools import get_roms
-from organize import organize_roms
-from pegasus import PegasusMetadata
-from platforms import ROM_EXTENSIONS
-from skyscraper import SkyscraperMetadata
+from exporter.tools import get_roms
+from shared.platforms import PLATFORMS
+from exporter.organize import organize_roms
+from exporter.pegasus import PegasusExporter
+from exporter.skyscraper import SkyscraperImporter
 
 EXPORTERS = {
     "attractmode": None,
     "emulationstation": None,
-    "pegasus": PegasusMetadata
+    "pegasus": PegasusExporter
 }
-
-class GamelistContext:
-
-    __slots__ = ("platform", "roms_directory", "media_directory")
-
-    def __init__(self, platform, roms_directory, media_directory):
-        self.platform = platform
-        self.roms_directory = roms_directory
-        self.media_directory = media_directory
 
 def filter_games(context, gamedb):
 
@@ -42,9 +36,12 @@ def filter_games(context, gamedb):
         if missing_medias:
             gamedb_missing.append((roms[checksum], missing_medias))
         #else:
-        gamedb_available.append((roms[checksum], checksum, game))
+        gamedb_available.append((roms[checksum], game))
 
-    return sorted(gamedb_available, key=itemgetter(0)), gamedb_missing
+    return (
+        sorted(gamedb_available, key=itemgetter(0)),
+        sorted(gamedb_missing, key=itemgetter(0))
+    )
 
 def get_missing_medias(context, game):
 
@@ -66,7 +63,7 @@ if __name__ == "__main__":
 
     colorama.init(autoreset=True)
     parser = ArgumentParser(add_help=False)
-    parser.add_argument("--platform", required=True, choices=ROM_EXTENSIONS.keys())
+    parser.add_argument("--platform", required=True, choices=PLATFORMS.keys())
     parser.add_argument("--frontend", default="pegasus", choices=EXPORTERS.keys())
     parser.add_argument("--roms_directory")
     parser.add_argument("--media_directory")
@@ -102,13 +99,13 @@ if __name__ == "__main__":
         "roms": get_roms(roms_directory, ROM_EXTENSIONS[arguments.platform])
     }
 
-    gamedb = SkyscraperMetadata().read(media_directory)
+    gamedb = SkyscraperImporter(context).read(media_directory)
     gamedb_available, gamedb_missing = filter_games(context, gamedb)
     exporter = EXPORTERS[arguments.frontend](context)
 
     for (filename, medias) in gamedb_missing:
 
-        print("%s[  SKIP  ]%s %s %s(%s) " % (
+        print("%s[ SKIP ]%s %s %s(%s) " % (
             colorama.Fore.RED,
             colorama.Fore.RESET,
             filename,
