@@ -18,8 +18,8 @@ def get_suffix(title):
 def organize_directories(context):
 
     filenames = []
-    gamedb = SkyscraperImporter().read(context["media_directory"])
-    roms = get_roms(context["roms_directory"], context["extensions"])
+    gamedb = SkyscraperImporter().read(context.media_directory)
+    roms = get_roms(context.roms_directory, context.extensions)
 
     entries = (
         (game[GdfFields.TITLE].upper(), roms[checksum])
@@ -52,15 +52,15 @@ def organize_directories(context):
 
 def rename_rom(context, filename, checksum):
 
-    return context["output_directory"] / PurePath(filename) \
-        .relative_to(context["roms_directory"]) \
+    return context.output_directory / PurePath(filename) \
+        .relative_to(context.roms_directory) \
         .with_name(checksum) \
         .with_suffix(path.splitext(filename)[-1])
 
 def organize_rename(context):
 
-    roms = get_roms(context["roms_directory"], context["extensions"])
-    gamedb = SkyscraperImporter().read(context["media_directory"])
+    roms = get_roms(context.roms_directory, context.extensions)
+    gamedb = SkyscraperImporter().read(context.media_directory)
 
     return (
         (filename, rename_rom(context, filename, checksum))
@@ -74,7 +74,7 @@ def organize_roms(context, gamedb):
 
     for (source, checksum, game) in gamedb:
 
-        destination = PurePath(context["output_directory"]) \
+        destination = PurePath(context.output_directory) \
             .joinpath(get_suffix(game["title"])) \
             .joinpath(checksum) \
             .with_suffix(path.splitext(source)[-1])
@@ -83,12 +83,12 @@ def organize_roms(context, gamedb):
             "rom": (source, destination)
         }
 
-        for media in context["medias"]:
+        for media in context.medias:
 
             subdirectory = game.get(singularize(media))
 
             if subdirectory:
-                paths[media] = export_media(context, media, subdirectory)
+                paths[media] = export_media(media)(context, subdirectory)
 
         filenames.append(paths)
 

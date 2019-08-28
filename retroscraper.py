@@ -5,7 +5,7 @@ import os
 import requests
 import colorama
 
-from shared.gdf import GdfRegion
+from shared.gdf import GdfRegions
 from shared.tools import get_files
 from shared.platforms import PLATFORMS
 
@@ -103,7 +103,7 @@ class Retroscraper(object):
         scraper, result = self.__scrape_game(context)
 
         if result.found:
-            title = result.metadata["title"][GdfRegion.DEFAULT].upper()
+            title = result.metadata["title"][GdfRegions.DEFAULT].upper()
             self.progress.success(log_success(filename, scraper, title))
         else:
             self.progress.failure(log_failure(filename, scraper))

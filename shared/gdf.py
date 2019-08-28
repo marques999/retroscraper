@@ -1,6 +1,15 @@
 # -*- coding: utf-8 -*-
 
-class GdfRegion:
+class GdfLanguages:
+    ENGLISH = 0
+    FRENCH = 1
+    GERMAN = 2
+    ITALIAN = 3
+    SPANISH = 4
+    PORTUGUESE = 5
+    JAPANESE = 6
+
+class GdfRegions:
     GERMANY = 115
     ASIA = 114
     AUSTRALIA = 61
@@ -34,7 +43,6 @@ class GdfRegion:
     CZECH_REPUBLIC = 3820
     UNITED_KINGDOM = 3289
     RUSSIA = 126
-    DEFAULT = 20240
     SLOVAKIA = 3823
     SWEDEN = 116
     TAIWAN = 112

@@ -3,7 +3,7 @@
 from datetime import datetime
 
 def string(context, value):
-    return value
+    return str(value)
 
 def integer(context, value):
     return int(value)

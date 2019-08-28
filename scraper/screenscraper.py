@@ -4,7 +4,7 @@ import operator
 import requests
 
 from shared import handlers
-from shared.gdf import GdfFields, GdfRegion
+from shared.gdf import GdfFields, GdfRegions
 from shared.tools import export, parse_datetime
 
 from threading import BoundedSemaphore
@@ -29,52 +29,52 @@ def export_release(context, value):
     }
 
 SCREENSCRAPER_REGIONS = {
-    "de": GdfRegion.GERMANY,
-    "asi": GdfRegion.ASIA,
-    "au": GdfRegion.AUSTRALIA,
-    "br": GdfRegion.BRAZIL,
-    "bg": GdfRegion.BULGARIA,
-    "ca": GdfRegion.CANADA,
-    "cl": GdfRegion.CHILE,
-    "cn": GdfRegion.CHINA,
-    "ame": GdfRegion.AMERICAS,
-    "kr": GdfRegion.KOREA,
-    "dk": GdfRegion.DENMARK,
-    "sp": GdfRegion.SPAIN,
-    "eu": GdfRegion.EUROPE,
-    "fi": GdfRegion.FINLAND,
-    "fr": GdfRegion.FRANCE,
-    "gr": GdfRegion.GREECE,
-    "hu": GdfRegion.HUNGARY,
-    "il": GdfRegion.ISRAEL,
-    "it": GdfRegion.ITALY,
-    "jp": GdfRegion.JAPAN,
-    "kw": GdfRegion.KUWAIT,
-    "wor": GdfRegion.WORLD,
-    "mor": GdfRegion.MIDDLE_EAST,
-    "no": GdfRegion.NORWAY,
-    "nz": GdfRegion.NEW_ZEALAND,
-    "oce": GdfRegion.OCEANIA,
-    "nl": GdfRegion.NETHERLANDS,
-    "pe": GdfRegion.PERU,
-    "pl": GdfRegion.POLAND,
-    "pt": GdfRegion.PORTUGAL,
-    "cz": GdfRegion.CZECH_REPUBLIC,
-    "uk": GdfRegion.UNITED_KINGDOM,
-    "ru": GdfRegion.RUSSIA,
-    "ss": GdfRegion.DEFAULT,
-    "sk": GdfRegion.SLOVAKIA,
-    "se": GdfRegion.SWEDEN,
-    "tw": GdfRegion.TAIWAN,
-    "tr": GdfRegion.TURKEY,
-    "us": GdfRegion.USA
+    "de": GdfRegions.GERMANY,
+    "asi": GdfRegions.ASIA,
+    "au": GdfRegions.AUSTRALIA,
+    "br": GdfRegions.BRAZIL,
+    "bg": GdfRegions.BULGARIA,
+    "ca": GdfRegions.CANADA,
+    "cl": GdfRegions.CHILE,
+    "cn": GdfRegions.CHINA,
+    "ame": GdfRegions.AMERICAS,
+    "kr": GdfRegions.KOREA,
+    "dk": GdfRegions.DENMARK,
+    "sp": GdfRegions.SPAIN,
+    "eu": GdfRegions.EUROPE,
+    "fi": GdfRegions.FINLAND,
+    "fr": GdfRegions.FRANCE,
+    "gr": GdfRegions.GREECE,
+    "hu": GdfRegions.HUNGARY,
+    "il": GdfRegions.ISRAEL,
+    "it": GdfRegions.ITALY,
+    "jp": GdfRegions.JAPAN,
+    "kw": GdfRegions.KUWAIT,
+    "wor": GdfRegions.WORLD,
+    "mor": GdfRegions.MIDDLE_EAST,
+    "no": GdfRegions.NORWAY,
+    "nz": GdfRegions.NEW_ZEALAND,
+    "oce": GdfRegions.OCEANIA,
+    "nl": GdfRegions.NETHERLANDS,
+    "pe": GdfRegions.PERU,
+    "pl": GdfRegions.POLAND,
+    "pt": GdfRegions.PORTUGAL,
+    "cz": GdfRegions.CZECH_REPUBLIC,
+    "uk": GdfRegions.UNITED_KINGDOM,
+    "ru": GdfRegions.RUSSIA,
+    "ss": GdfRegions.WORLD,
+    "sk": GdfRegions.SLOVAKIA,
+    "se": GdfRegions.SWEDEN,
+    "tw": GdfRegions.TAIWAN,
+    "tr": GdfRegions.TURKEY,
+    "us": GdfRegions.USA
 }
 
 def export_region(context, value):
     return get_region(value["shortname"])
 
 def get_region(region):
-    return SCREENSCRAPER_REGIONS.get(region, GdfRegion.UNKNOWN)
+    return SCREENSCRAPER_REGIONS.get(region, GdfRegions.UNKNOWN)
 
 def export_regionizable(context, values):
     return dict(map(lambda item: (get_region(item["region"]), item["text"]), values))

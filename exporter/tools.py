@@ -65,12 +65,26 @@ def get_roms(roms_directory, extensions):
 
     return roms
 
-def export_media(context, media, resource):
+def sort_genres(genres):
 
     return (
-        context["media_directory"] / resource,
-        context["output_directory"] / media / os.path.basename(resource)
+        int(genres[GdfFields.PARENT] != "0"),
+        int(genres[GdfFields.PRIMARY]),
+        genres[GdfFields.ID]
     )
+
+def export_media(media):
+
+    def export_media_private(context, resource):
+
+        destination = media / os.path.basename()
+
+        if not context.relative:
+            destination = context.output_directory / destination
+
+        return (str(context.media_directory / resource), str(destination))
+
+    return export_media_private
 
 def localize_genres(items, language, region):
 
