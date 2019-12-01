@@ -1,0 +1,15 @@
+name: Atari 2600
+manufacturer: Atari
+scrapers:
+  mobygames: 28
+  screenscraper: 26
+extensions:
+  - id: a26
+    type: cartridge
+    archive: no
+  - id: bin
+    type: cartridge
+    archive: no
+  - id: rom
+    type: cartridge
+    archive: no

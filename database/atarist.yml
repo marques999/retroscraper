@@ -1,0 +1,30 @@
+name: Atari ST
+manufacturer: Atari
+scrapers:
+  mobygames: 24
+  screenscraper: 42
+extensions:
+  - id: ctr
+    type: floppy
+    archive: no
+  - id: img
+    type: floppy
+    archive: no
+  - id: ipf
+    type: floppy
+    archive: no
+  - id: msa
+    type: floppy
+    archive: no
+  - id: raw
+    type: floppy
+    archive: no
+  - id: rom
+    type: cartridge
+    archive: no
+  - id: st
+    type: floppy
+    archive: no
+  - id: stx
+    type: floppy
+    archive: no

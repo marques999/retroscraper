@@ -1,0 +1,9 @@
+name: Neo Geo Pocket Color
+manufacturer: SNK
+scrapers:
+  mobygames: 53
+  screenscraper: 82
+extensions:
+  - id: ngc
+    type: cartridge
+    archive: no

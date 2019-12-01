@@ -1,0 +1,12 @@
+name: Sega Master System
+manufacturer: Sega
+scrapers:
+  mobygames: 26
+  screenscraper: 2
+extensions:
+  - id: bin
+    type: cartridge
+    archive: no
+  - id: sms
+    type: cartridge
+    archive: no

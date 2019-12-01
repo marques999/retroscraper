@@ -1,0 +1,26 @@
+name: Sega 32X
+manufacturer: Sega
+scrapers:
+  mobygames: 21
+  screenscraper: 19
+extensions:
+  - id: 32x
+    type: cartridge
+    archive: no
+  - id: bin
+    type: cartridge
+    archive: no
+hardware:
+  cpu:
+    - model: SH-2
+      count: 2
+      clock: 23000000
+  memory:
+    - type: ram
+      length: 256K
+    - type: vram
+      length: 256K
+  video:
+    - width: 320
+      height: 240
+      bpp: 32768

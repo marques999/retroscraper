@@ -1,0 +1,9 @@
+name: Nintendo Entertainment System
+manufacturer: Nintendo
+scrapers:
+  mobygames: 22
+  screenscraper: 3
+extensions:
+  - id: nes
+    type: cartridge
+    archive: no

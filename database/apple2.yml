@@ -1,0 +1,18 @@
+name: Apple II
+manufacturer: Apple Computer
+scrapers:
+  mobygames: 31
+  screenscraper: 86
+extensions:
+  - id: do
+    type: floppy
+    archive: no
+  - id: dsk
+    type: floppy
+    archive: no
+  - id: nib
+    type: floppy
+    archive: no
+  - id: po
+    type: floppy
+    archive: no

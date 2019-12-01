@@ -1,0 +1,18 @@
+name: Mega-CD
+manufacturer: Sega
+scrapers:
+  mobygames: 20
+  screenscraper: 20
+extensions:
+  - id: bin
+    type: cdrom
+    archive: no
+  - id: chd
+    type: cdrom
+    archive: no
+  - id: cue
+    type: cdrom
+    archive: no
+  - id: iso
+    type: cdrom
+    archive: no

@@ -1,0 +1,21 @@
+name: Sega Saturn
+manufacturer: Sega
+scrapers:
+  mobygames: 23
+  screenscraper: 22
+extensions:
+  - id: bin
+    type: cdrom
+    archive: no
+  - id: chd
+    type: cdrom
+    archive: no
+  - id: cue
+    type: cdrom
+    archive: no
+  - id: iso
+    type: cdrom
+    archive: no
+  - id: mdf
+    type: cdrom
+    archive: no

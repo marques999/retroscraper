@@ -1,0 +1,30 @@
+name: Commodore Amiga
+manufacturer: Commodore
+scrapers:
+  mobygames: 19
+  screenscraper: 64
+extensions:
+  - id: adf
+    type: floppy
+    archive: no
+  - id: adz
+    type: floppy
+    archive: no
+  - id: dms
+    type: floppy
+    archive: no
+  - id: exe
+    type: binary
+    archive: no
+  - id: fdi
+    type: floppy
+    archive: no
+  - id: hdf
+    type: floppy
+    archive: no
+  - id: hdz
+    type: floppy
+    archive: no
+  - id: ipf
+    type: floppy
+    archive: no

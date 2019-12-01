@@ -1,0 +1,27 @@
+name: "Super Nintendo Entertainment System"
+manufacturer: "Nintendo"
+scrapers:
+  mobygames: 15
+  screenscraper: 4
+extensions:
+  - id: bin
+    type: cartridge
+    archive: no
+  - id: bs
+    type: cartridge
+    archive: no
+  - id: fig
+    type: cartridge
+    archive: no
+  - id: mgd
+    type: cartridge
+    archive: no
+  - id: sfc
+    type: cartridge
+    archive: no
+  - id: smc
+    type: cartridge
+    archive: no
+  - id: swc
+    type: cartridge
+    archive: no

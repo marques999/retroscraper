@@ -1,0 +1,21 @@
+name: Atari 400/800
+manufacturer: Atari
+scrapers:
+  mobygames: 39
+  screenscraper: 43
+extensions:
+  - id: atr
+    type: floppy
+    archive: no
+  - id: bas
+    type: binary
+    archive: no
+  - id: bin
+    type: cartrdige
+    archive: no
+  - id: xex
+    type: binary
+    archive: no
+  - id: xfd
+    type: floppy 
+    archive: no

@@ -1,0 +1,15 @@
+name: Game Gear
+manufacturer: Sega
+scrapers:
+  mobygames: 25
+  screenscraper: 21
+extensions:
+  - id: bin
+    type: cartridge
+    archive: no
+  - id: gg
+    type: cartridge
+    archive: no
+  - id: sms
+    type: cartridge
+    archive: no

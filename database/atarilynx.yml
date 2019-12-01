@@ -1,0 +1,9 @@
+name: Atari Lynx
+manufacturer: Atari
+scrapers:
+  mobygames: 18
+  screenscraper: 28
+extensions:
+  - id: lnx
+    type: cartridge
+    archive: no

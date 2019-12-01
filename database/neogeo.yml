@@ -1,0 +1,12 @@
+name: Neo Geo
+manufacturer: SNK
+scrapers:
+  mobygames: 36
+  screenscraper: 142
+extensions:
+  - id: 7z
+    type: dump
+    archive: yes
+  - id: zip
+    type: dump
+    archive: yes

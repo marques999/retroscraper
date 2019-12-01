@@ -1,0 +1,16 @@
+megacd:
+  id: megacd_eu
+  name: Sega Mega-CD (Europe)
+  manufacturer: Sega
+megadrive:
+  id: megadrive_eu
+  name: Sega Mega Drive (Europe)
+  manufacturer: Sega
+nes:
+  id: nes_eu
+  name: Nintendo Entertainment System (Europe)
+  manufacturer: Nintendo
+snes:
+  id: snes_eu
+  name: Super Nintendo Entertainment System (Europe)
+  manufacturer: Nintendo

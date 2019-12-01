@@ -1,0 +1,9 @@
+name: Game Boy Color
+manufacturer: Nintendo
+scrapers:
+  mobygames: 11
+  screenscraper: 10
+extensions:
+  - id: gbc
+    type: cartridge
+    archive: no

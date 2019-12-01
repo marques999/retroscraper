@@ -1,0 +1,15 @@
+name: Nintendo 64
+manufacturer: Nintendo
+scrapers:
+  mobygames: 9
+  screenscraper: 14
+extensions:
+  - id: n64
+    type: cartridge
+    archive: no
+  - id: v64
+    type: cartridge
+    archive: no
+  - id: z64
+    type: cartridge
+    archive: no

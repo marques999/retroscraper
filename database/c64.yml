@@ -1,0 +1,30 @@
+name: Commodore 64
+manufacturer: Commodore
+scrapers:
+  mobygames: 27
+  screenscraper: 66
+extensions:
+  - id: crt
+    type: catridge
+    archive: no
+  - id: d64
+    type: floppy
+    archive: no
+  - id: g64
+    type: floppy
+    archive: no
+  - id: p00
+    type: binary
+    archive: no
+  - id: prg
+    type: binary
+    archive: no
+  - id: t64
+    type: cassette
+    archive: no
+  - id: tap
+    type: cassette
+    archive: no
+  - id: x64
+    type: binary
+    archive: no

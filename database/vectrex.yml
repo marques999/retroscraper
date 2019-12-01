@@ -1,0 +1,12 @@
+name: Vectrex
+manufacturer: GCE
+scrapers:
+  mobygames: 37
+  screenscraper: 102
+extensions:
+  - id: bin
+    type: cartridge
+    archive: no
+  - id: vec
+    type: cartridge
+    archive: no

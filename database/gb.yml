@@ -1,0 +1,9 @@
+name: Game Boy
+manufacturer: Nintendo
+scrapers:
+  mobygames: 10
+  screenscraper: 9
+extensions:
+  - id: gb
+    type: cartridge
+    archive: no

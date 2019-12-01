@@ -1,0 +1,26 @@
+name: Thomson MO/TO
+manufacturer: Thomson
+scrapers:
+  screenscraper: 141
+extensions:
+  - id: bin
+    type: cartridge
+    archive: no
+  - id: fd
+    type: floppy
+    archive: no
+  - id: k7
+    type: cassette
+    archive: no
+  - id: m5
+    type: snapshot
+    archive: no
+  - id: qd
+    type: floppy
+    archive: no
+  - id: sap
+    type: floppy
+    archive: no
+  - id: wav
+    type: cassette
+    archive: no

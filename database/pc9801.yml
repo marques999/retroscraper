@@ -1,0 +1,44 @@
+name: PC-9801/PC-9821
+manufacturer: NEC
+scrapers:
+  screenscraper: 0
+extensions:
+  - id: d88
+    type: floppy
+    archive: no
+  - id: d98
+    type: floppy
+    archive: no
+  - id: fdd
+    type: floppy
+    archive: no
+  - id: fdi
+    type: floppy
+    archive: no
+  - id: xdf
+    type: floppy
+    archive: no
+  - id: hdm
+    type: floppy
+    archive: no
+  - id: dup
+    type: floppy
+    archive: no
+  - id: 2hd
+    type: floppy
+    archive: no
+  - id: tfd
+    type: floppy
+    archive: no
+  - id: hdi
+    type: hdd
+    archie: no
+  - id: thd
+    type: hdd
+    archie: no
+  - id: nhd
+    type: hdd
+    archie: no
+  - id: hdd
+    type: hdd
+    archie: no

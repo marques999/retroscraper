@@ -1,0 +1,41 @@
+name: ZX Spectrum
+manufacturer: Sinclair Research
+scrapers:
+  screenscraper: 76
+extensions:
+  - id: dsk
+    type: floppy
+    archive: no
+  - id: fdi
+    type: floppy
+    archive: no
+  - id: img
+    type: floppy
+    archive: no
+  - id: mgt
+    type: floppy
+    archive: no
+  - id: scl
+    type: floppy
+    archive: no
+  - id: sna
+    type: snapshot
+    archive: no
+  - id: szx
+    type: snapshot
+    archive: no
+  - id: tap
+    type: cassette
+    archive: no
+  - id: trd
+    type: floppy
+    archive: no
+  - id: udi
+    type: floppy
+    archive: no
+  - id: tzx
+    type: cassette 
+    archive: no
+  - id: z80
+    type: snapshot
+    archive: no

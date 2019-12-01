@@ -1,0 +1,12 @@
+name: Amstrad CPC
+manufacturer: Amstrad
+scrapers:
+  mobygames: 60
+  screenscraper: 65
+extensions:
+  - id: cdt
+    type: cassette
+    archive: no
+  - id: dsk
+    type: floppy
+    archive: no

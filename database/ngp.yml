@@ -1,0 +1,9 @@
+name: Neo Geo Pocket
+manufacturer: SNK
+scrapers:
+  mobygames: 52
+  screenscraper: 25
+extensions:
+  - id: ngp
+    type: cartridge
+    archive: no

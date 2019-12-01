@@ -1,0 +1,15 @@
+name: Dreamcast
+manufacturer: Sega
+scrapers:
+  mobygames: 8
+  screenscraper: 23
+extensions:
+  - id: cdi
+    type: cdrom
+    archive: no
+  - id: chd
+    type: cdrom
+    archive: no
+  - id: gdi
+    type: cdrom
+    archive: no

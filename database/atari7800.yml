@@ -1,0 +1,12 @@
+name: Atari 7800
+manufacturer: Atari
+scrapers:
+  mobygames: 34
+  screenscraper: 41
+extensions:
+  - id: a78
+    type: cartridge
+    archive: no
+  - id: bin
+    type: cartridge
+    archive: no

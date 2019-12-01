@@ -1,0 +1,14 @@
+name: Apple IIGS
+manufacturer: Apple Computer
+scrapers:
+  screenscraper: 217
+extensions:
+  - id: 2mg
+    type: floppy
+    archive: no
+  - id: do
+    type: floppy
+    archive: no
+  - id: po
+    type: floppy
+    archive: no

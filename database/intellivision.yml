@@ -1,0 +1,15 @@
+name: Intellivision
+manufacturer: Mattel
+scrapers:
+  mobygames: 30
+  screenscraper: 115
+extensions:
+  - id: bin
+    type: cartridge
+    archive: no
+  - id: int
+    type: cartridge
+    archive: no
+  - id: rom
+    type: cartridge
+    archive: no

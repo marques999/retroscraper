@@ -1,0 +1,12 @@
+name: Nintendo DS
+manufacturer: Nintendo
+scrapers:
+  mobygames: 44
+  screenscraper: 15
+extensions:
+  - id: nds
+    type: cartridge
+    archive: no
+  - id: zip
+    type: cartridge
+    archive: yes

@@ -1,0 +1,23 @@
+name: PC Engine
+manufacturer: NEC
+scrapers:
+  screenscraper: 31
+extensions:
+  - id: pce
+    type: cartridge
+    archive: no
+  - id: bin
+    type: cdrom
+    archive: no
+  - id: ccd
+    type: cdrom
+    archive: no
+  - id: chd
+    type: cdrom
+    archive: no
+  - id: cue
+    type: cdrom
+    archive: no
+  - id: iso
+    type: cdrom
+    archive: no

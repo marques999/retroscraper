@@ -1,0 +1,9 @@
+name: Game Boy Advance
+manufacturer: Nintendo
+scrapers:
+  mobygames: 12
+  screenscraper: 12
+extensions:
+  - id: gba
+    type: cartridge
+    archive: no

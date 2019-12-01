@@ -1,0 +1,16 @@
+megacd:
+  id: segacd
+  name: Sega CD
+  manufacturer: Sega
+megadrive:
+  id: genesis
+  name: Sega Genesis
+  manufacturer: Sega
+nes:
+  id: nes_us
+  name: Nintendo Entertainment System (USA)
+  manufacturer: Nintendo
+snes:
+  id: snes_us
+  name: Super Nintendo Entertainment System (USA)
+  manufacturer: Nintendo

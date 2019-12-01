@@ -1,0 +1,27 @@
+name: PlayStation 2
+manufacturer: Sony
+scrapers:
+  mobygames: 7
+  screenscraper: 58
+extensions:
+  - id: bin
+    type: cdrom
+    archive: no
+  - id: cso
+    type: cdrom
+    archive: no
+  - id: ima
+    type: cdrom
+    archive: no
+  - id: img
+    type: cdrom
+    archive: no
+  - id: iso
+    type: cdrom
+    archive: no
+  - id: mdf
+    type: cdrom
+    archive: no
+  - id: z
+    type: cdrom
+    archive: no

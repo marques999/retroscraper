@@ -1,0 +1,17 @@
+name: PC-8801/PC-88VA
+manufacturer: NEC
+scrapers:
+  mobygames: 94
+extensions:
+  - id: 2d
+    type: floppy
+    archive: no
+  - id: cmt
+    type: cassette
+    archive: no
+  - id: d88
+    type: floppy
+    archive: no
+  - id: t88
+    type: cassette
+    archive: no

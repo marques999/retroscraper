@@ -1,0 +1,9 @@
+name: Virtual Boy
+manufacturer: Nintendo
+scrapers:
+  mobygames: 38
+  screenscraper: 11
+extensions:
+  - id: vb
+    type: cartridge
+    archive: no

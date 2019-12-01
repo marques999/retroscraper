@@ -1,0 +1,12 @@
+name: Atari Jaguar
+manufacturer: Atari
+scrapers:
+  mobygames: 17
+  screenscraper: 27
+extensions:
+  - id: j64
+    type: cartridge
+    archive: no
+  - id: jag
+    type: cartridge
+    archive: no

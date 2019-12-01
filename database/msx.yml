@@ -1,0 +1,21 @@
+name: MSX
+manufacturer: ASCII/Microsoft
+scrapers:
+  mobygames: 57
+  screenscraper: 113
+extensions:
+  - id: cas
+    type: cassette
+    archive: no
+  - id: dsk
+    type: floppy
+    archive: no
+  - id: mx1
+    type: cartridge
+    archive: no
+  - id: mx2
+    type: cartridge
+    archive: no
+  - id: rom
+    type: cartridge
+    archive: no

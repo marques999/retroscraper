@@ -1,0 +1,12 @@
+name: Sega SG-1000
+manufacturer: Sega
+scrapers:
+  mobygames: 114
+  screenscraper: 109
+extensions:
+  - id: sc
+    type: cartridge
+    archive: no
+  - id: sg
+    type: cartridge
+    archive: no

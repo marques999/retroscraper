@@ -1,0 +1,12 @@
+name: Famicom Disk System
+manufacturer: Nintendo
+scrapers:
+  mobygames: 22
+  screenscraper: 106
+extensions:
+  - id: fds
+    type: floppy
+    archive: no
+  - id: qd
+    type: floppy
+    archive: no

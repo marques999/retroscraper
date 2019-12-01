@@ -1,0 +1,15 @@
+name: PlayStation Portable
+manufacturer: Sony
+scrapers:
+  mobygames: 46
+  screenscraper: 61
+extensions:
+  - id: cso
+    type: cdrom
+    archive: no
+  - id: iso
+    type: cdrom
+    archive: no
+  - id: pbp
+    type: binary
+    archive: no

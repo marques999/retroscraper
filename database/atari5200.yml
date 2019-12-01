@@ -1,0 +1,12 @@
+name: Atari 5200
+manufacturer: Atari
+scrapers:
+  mobygames: 33
+  screenscraper: 40
+extensions:
+  - id: a52
+    type: cartridge
+    archive: no
+  - id: bin
+    type: cartridge
+    archive: no

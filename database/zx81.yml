@@ -1,0 +1,15 @@
+name: ZX81
+manufacturer: Sinclair Research
+scrapers:
+  mobygames: 119
+  screenscraper: 77
+extensions:
+  - id: p
+    type: snapshot
+    archive: no
+  - id: tzx
+    type: cassette
+    archive: no
+  - id: t81
+    type: cassette
+    archive: no

@@ -1,0 +1,15 @@
+name: ColecoVision
+manufacturer: Coleco
+scrapers:
+  mobygames: 29
+  screenscraper: 75
+extensions:
+  - id: bin
+    type: cartridge
+    archive: no
+  - id: col
+    type: cartridge
+    archive: no
+  - id: rom
+    type: cartridge
+    archive: no

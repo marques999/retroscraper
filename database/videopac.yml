@@ -1,0 +1,9 @@
+name: Videopac G7000
+manufacturer: Philips
+scrapers:
+  screenscraper: 104
+  mobygames: 128
+extensions:
+  - id: bin
+    type: cartridge
+    archive: no

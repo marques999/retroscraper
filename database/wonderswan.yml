@@ -1,0 +1,9 @@
+name: WonderSwan Color
+manufacturer: Bandai
+scrapers:
+  mobygames: 48
+  screenscraper: 45
+extensions:
+  - id: ws
+    type: cartridge
+    archive: no

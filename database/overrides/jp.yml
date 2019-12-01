@@ -1,0 +1,16 @@
+megacd:
+  id: megacd_jp
+  name: Sega Mega-CD (Japan)
+  manufacturer: Sega
+megadrive:
+  id: megadrive_jp
+  name: Sega Mega Drive (Japan)
+  manufacturer: Sega
+nes:
+  id: famicom
+  name: Family Computer
+  manufacturer: Nintendo
+snes:
+  id: sfc
+  name: Super Famicom
+  manufacturer: Nintendo

@@ -1,0 +1,11 @@
+name: Multiple Arcade Machine Emulator
+manufacturer: Arcade
+scrapers:
+  screenscraper: 75
+extensions:
+  - id: 7z
+    type: dump
+    archive: yes
+  - id: zip
+    type: dump
+    archive: yes

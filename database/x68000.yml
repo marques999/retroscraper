@@ -1,0 +1,27 @@
+name: Sharp X68000
+manufacturer: Sharp
+scrapers:
+  mobygames: 106
+  screenscraper: 79
+extensions:
+  - id: 2hd
+    type: floppy
+    archive: no
+  - id: 2hs
+    type: floppy
+    archive: no
+  - id: d88
+    type: floppy
+    archive: no
+  - id: dim
+    type: floppy
+    archive: no
+  - id: dup
+    type: floppy
+    archive: no
+  - id: hdm
+    type: floppy
+    archive: no
+  - id: xdf
+    type: floppy
+    archive: no
